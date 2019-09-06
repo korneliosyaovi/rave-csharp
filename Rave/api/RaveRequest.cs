@@ -4,7 +4,7 @@ using Rave.data;
 
 namespace Rave.api
 {
-    internal class RaveRequest : RaveRequestBase<RaveResponse<payData>, payData>
+    internal class RaveRequest : RaveRequestBase<RaveResponse<ChargeResponse>, ChargeResponse>
     {
        
     }

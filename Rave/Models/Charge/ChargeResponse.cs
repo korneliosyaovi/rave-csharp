@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Rave.data
 {
-    public abstract class payData
+    public abstract class ChargeResponse
     {
         [JsonProperty("amount")]
         public decimal Amount { get; set; }
