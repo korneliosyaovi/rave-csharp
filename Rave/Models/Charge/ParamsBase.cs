@@ -11,7 +11,7 @@ namespace Rave.Models.Charge
     {
         protected ParamsBase(string PfbPubKey, string firstName, string lastName, string email)
         {
-            PbfPubKey = PbfPubKey;
+            PfbPubKey = PbfPubKey;
             FirstName = firstName;
             LastName = lastName;
             Email = email;

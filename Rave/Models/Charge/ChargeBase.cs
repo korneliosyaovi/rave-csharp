@@ -21,6 +21,6 @@ namespace Rave.Models.Charge
         internal IRaveRequest<T1, T2> RaveApiRequest { get; }
 
         public IDataEncryption PayDataEncrypt { get; }
-        public abstract Task<T1> Charge(IParams Params, bool isRecurring = false);
+        public abstract Task<T1> Charge(IParams Params, bool isRecurring = false, object Enpoints = null);
     }
 }

@@ -728,24 +728,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Cornelius Osuzoka\\.nuget\\packages\\": {},
+    "C:\\Users\\Olufemi Obafunmiso\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Cornelius Osuzoka\\source\\repos\\Rave\\Rave\\Rave.csproj",
+      "projectUniqueName": "C:\\Users\\Olufemi Obafunmiso\\Desktop\\Rave_Csharp\\Rave\\Rave\\Rave.csproj",
       "projectName": "Rave",
-      "projectPath": "C:\\Users\\Cornelius Osuzoka\\source\\repos\\Rave\\Rave\\Rave.csproj",
-      "packagesPath": "C:\\Users\\Cornelius Osuzoka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Cornelius Osuzoka\\source\\repos\\Rave\\Rave\\obj\\",
+      "projectPath": "C:\\Users\\Olufemi Obafunmiso\\Desktop\\Rave_Csharp\\Rave\\Rave\\Rave.csproj",
+      "packagesPath": "C:\\Users\\Olufemi Obafunmiso\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Olufemi Obafunmiso\\Desktop\\Rave_Csharp\\Rave\\Rave\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Cornelius Osuzoka\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Olufemi Obafunmiso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"

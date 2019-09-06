@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Rave
 {
-    class raveConfig
+    public class raveConfig
     {
         public raveConfig(bool isLive)
         {
