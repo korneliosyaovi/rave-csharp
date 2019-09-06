@@ -4,27 +4,27 @@ using System.Text;
 
 namespace Rave
 {
-    class Config
+    class raveConfig
     {
-        public Config(bool isLive)
+        public raveConfig(bool isLive)
         {
             IsLive = isLive;
         }
 
-        public Config(string publicKey, string secretKey, bool isLive)
+        public raveConfig(string publicKey, string secretKey, bool isLive)
         {
             IsLive = isLive;
             PbfPubKey = publicKey;
             SecretKey = secretKey;
         }
 
-        public Config(string publicKey, bool isLive)
+        public raveConfig(string publicKey, bool isLive)
         {
             IsLive = isLive;
             PbfPubKey = publicKey;
         }
 
-        public Config(string publicKey, string secretKey)
+        public raveConfig(string publicKey, string secretKey)
         {
             IsLive = false;
             PbfPubKey = publicKey;
@@ -34,6 +34,8 @@ namespace Rave
         public bool IsLive { get; set; }
         public string PbfPubKey { get; set; }
         public string SecretKey { get; set; }
+
+
 
 
     }
