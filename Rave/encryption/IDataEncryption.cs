@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Rave.encryption
+namespace Rave
 {
     public interface IDataEncryption
     {

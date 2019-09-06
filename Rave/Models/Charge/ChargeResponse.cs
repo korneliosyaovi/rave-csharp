@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace Rave.data
+namespace Rave.Models.Charge
 {
     public abstract class ChargeResponse
     {

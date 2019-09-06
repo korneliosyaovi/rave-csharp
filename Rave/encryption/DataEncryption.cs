@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
 
-namespace Rave.encryption
+namespace Rave
 {
     internal class DataEncryption: IDataEncryption
     {
@@ -34,10 +34,12 @@ namespace Rave.encryption
 
         public string EncryptData(string encryptionKey, string data)
         {
-            TripleDES des = new TripleDESCryptoServiceProvider();
-            des.Mode = CipherMode.ECB;
-            des.Padding = PaddingMode.PKCS7;
-            des.Key = Encoding.UTF8.GetBytes(encryptionKey);
+            TripleDES des = new TripleDESCryptoServiceProvider
+            {
+                Mode = CipherMode.ECB,
+                Padding = PaddingMode.PKCS7,
+                Key = Encoding.UTF8.GetBytes(encryptionKey)
+            };
             ICryptoTransform cryptoTransform = des.CreateEncryptor();
             byte[] dataBytes = ASCIIEncoding.UTF8.GetBytes(data);
             byte[] encryptedDataBytes = cryptoTransform.TransformFinalBlock(dataBytes, 0, dataBytes.Length);
@@ -47,10 +49,12 @@ namespace Rave.encryption
 
         public string DecryptData(string encryptedData, string encryptionKey)
         {
-            TripleDESCryptoServiceProvider des = new TripleDESCryptoServiceProvider();
-            des.Key = ASCIIEncoding.UTF8.GetBytes(encryptionKey);
-            des.Mode = CipherMode.ECB;
-            des.Padding = PaddingMode.PKCS7;
+            TripleDESCryptoServiceProvider des = new TripleDESCryptoServiceProvider
+            {
+                Key = ASCIIEncoding.UTF8.GetBytes(encryptionKey),
+                Mode = CipherMode.ECB,
+                Padding = PaddingMode.PKCS7
+            };
             ICryptoTransform cryptoTransform = des.CreateDecryptor();
             byte[] EncryptDataBytes = Convert.FromBase64String(encryptedData);
             byte[] plainDataBytes = cryptoTransform.TransformFinalBlock(EncryptDataBytes, 0, EncryptDataBytes.Length);

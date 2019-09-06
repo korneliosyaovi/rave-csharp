@@ -10,7 +10,7 @@ namespace Rave.api
     {
         protected RaveRequestBase()
         {
-            Config = new raveConfig(false);
+            Config = new RaveConfig(false);
             HttpClient = new HttpClient
             {
                 BaseAddress = Config.IsLive
@@ -21,7 +21,7 @@ namespace Rave.api
             HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        protected RaveRequestBase(raveConfig config)
+        protected RaveRequestBase(RaveConfig config)
         {
             Config = config;
             HttpClient = new HttpClient()
@@ -34,7 +34,7 @@ namespace Rave.api
             HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
         protected HttpClient HttpClient { get; }
-        protected raveConfig Config { get; set; }
+        protected RaveConfig Config { get; set; }
 
         public virtual async Task<T1> Request(HttpRequestMessage requestBody)
         {

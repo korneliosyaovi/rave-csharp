@@ -13,11 +13,11 @@ namespace Rave.api
     {
         internal RaveRequest():base()
         {
-            Config = new raveConfig(false);
+            Config = new RaveConfig(false);
             HttpClient.DefaultRequestHeaders.Accept.Clear();
             HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
-        internal RaveRequest(raveConfig config): base(config)
+        internal RaveRequest(RaveConfig config): base(config)
         {
             Config = config;
             HttpClient.DefaultRequestHeaders.Accept.Clear();
