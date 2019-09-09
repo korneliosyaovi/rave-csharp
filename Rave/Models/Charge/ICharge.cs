@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Rave.api;
-using Rave.data;
-using Rave.encryption;
+using Rave.Models;
 
 namespace Rave.Models.Charge
 {

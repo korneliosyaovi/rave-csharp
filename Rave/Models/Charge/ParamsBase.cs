@@ -9,9 +9,10 @@ namespace Rave.Models.Charge
 
     public abstract class ParamsBase : IParams
     {
-        protected ParamsBase(string PfbPubKey, string firstName, string lastName, string email)
+        protected ParamsBase(string pbfPubKey, string secretKey, string firstName, string lastName, string email)
         {
-            PbfPubKey = PbfPubKey;
+            PbfPubKey = pbfPubKey;
+            SecretKey = secretKey;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
@@ -37,6 +38,9 @@ namespace Rave.Models.Charge
 
         [JsonProperty("PBFPubKey")]
         public string PbfPubKey { get; set; }
+
+        [JsonProperty("SecretKey")]
+        public string SecretKey { get; set;  }
         
 
         [JsonProperty("currency")]

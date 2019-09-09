@@ -6,9 +6,9 @@ using Rave.api;
 
 namespace Rave.Models.Charge
 {
-    public abstract class ChargeBase <T1, T2> : ICharge<T1, T2> where T1 : RaveResponse<T2>, new() where T2 : ChargeResponse
+    public abstract class Base <T1, T2> : ICharge<T1, T2> where T1 : RaveResponse<T2>, new() where T2 : ChargeResponse
     {
-        internal ChargeBase (RaveConfig config)
+        internal Base (RaveConfig config)
         {
             Config = config;
             RaveApiRequest = new RaveRequest<T1, T2>(config);

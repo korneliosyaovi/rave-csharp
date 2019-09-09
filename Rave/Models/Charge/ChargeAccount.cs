@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace Rave.Models.Charge
 {
-    public class ChargeAccount : ChargeBase<RaveResponse<Account.ResponseData>, Account.ResponseData>
+    public class ChargeAccount : Base<RaveResponse<Account.ResponseData>, Account.ResponseData>
     {
         public ChargeAccount(RaveConfig conf) : base(conf) { }
 
