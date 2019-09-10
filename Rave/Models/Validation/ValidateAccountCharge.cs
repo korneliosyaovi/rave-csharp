@@ -9,14 +9,14 @@ using Newtonsoft.Json;
 
 namespace Rave.Models.Validation
 {
-    class ValidateAccountCharge : Base<ValidateCardChargeResponse>
+    class ValidateAccountCharge : Base<ValidateAccountChargeResponse>
     {
         public ValidateAccountCharge(RaveConfig config) : base(config)
         {
 
         }
 
-        public override async Task<RaveResponse<ValidateCardChargeResponse>> ValidateCharge(IValidateParams validateChargeParams)
+        public override async Task<RaveResponse<ValidateAccountChargeResponse>> ValidateCharge(IValidateParams validateChargeParams)
         {
             var requestBody = new StringContent(JsonConvert.SerializeObject(validateChargeParams), Encoding.UTF8, "application/json");
             var requestMessage = new HttpRequestMessage(HttpMethod.Post, Endpoints.ValidateCharge) { Content = requestBody };

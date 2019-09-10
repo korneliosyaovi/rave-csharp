@@ -9,14 +9,14 @@ namespace Rave.Models.Charge
 
     public abstract class ParamsBase : IParams
     {
-        protected ParamsBase(string pbfPubKey, string secretKey, string firstName, string lastName, string email)
+        protected ParamsBase(string pbfPubKey, string secretKey, string firstName, string lastName, string email, string currency)
         {
             PbfPubKey = pbfPubKey;
             SecretKey = secretKey;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
-            Currency = "NGN";
+            Currency = currency;
             Country = "NG";
         }
 

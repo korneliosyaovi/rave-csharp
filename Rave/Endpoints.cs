@@ -16,6 +16,7 @@
         public const string PreauthorizeCapture = "flwv3-pug/getpaidx/api/capture";
         public const string PreauthorizeReturnOrVoid = "flwv3-pug/getpaidx/api/refundorvoid";
         public const string GetDirectBankDebitList = "flwv3-pug/getpaidx/api/flwpbf-banks.js?json=1";
+
         public const string GetBankTransferList = "/v2/banks/";
     }
 }

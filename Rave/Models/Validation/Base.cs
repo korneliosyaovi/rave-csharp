@@ -31,7 +31,7 @@ namespace Rave.Models.Validation
 
     public interface IValidateParams
     {
-        string PbfPubKey { get; set; }
+        string PfbPubKey { get; set; }
     }
 
     public interface IChargeValidate<T> where T: ValidateChargeDatabase
@@ -39,7 +39,7 @@ namespace Rave.Models.Validation
         Task<RaveResponse<T>> ValidateCharge(IValidateParams validateParams);
     }
 
-    public class ValidateCardChargeResponse : ValidateChargeDatabase { }
+    public class ValidateChargeResponse : ValidateChargeDatabase { }
 
 
 
@@ -49,10 +49,10 @@ namespace Rave.Models.Validation
     {
         protected ValidateParams(string pfbPubKey)
         {
-            PbfPubKey = pfbPubKey;
+            PfbPubKey = pfbPubKey;
         }
 
         [JsonProperty("PBFPubKey")]
-        public string PbfPubKey { get; set; }
+        public string PfbPubKey { get; set; }
     }
 }

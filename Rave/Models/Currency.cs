@@ -74,4 +74,38 @@ namespace Rave.Models
 
     }
 
+    public class CurrencyService
+    {
+        public CurrencyService(RaveConfig config)
+        {
+            if (string.IsNullOrEmpty(config.SecretKey))
+            {
+                throw new ArgumentException("Config.SecretKey is required");
+            }
+
+            Config = config;
+            RaveApiRequest = new RaveRequest<RaveResponse<ExchangeRateRes>, ExchangeRateRes>(config);
+        }
+        private IRaveRequest<RaveResponse<ExchangeRateRes>, ExchangeRateRes> RaveApiRequest { get; }
+        private RaveConfig Config { get; }
+
+        public async Task<RaveResponse<ExchangeRateRes>> GetExchangeRate(CurrencyType originalCurrency, CurrencyType destinationCurrency, decimal amount)
+        {
+            var payload = new
+            {
+                SECKEY = Config.SecretKey,
+                origin_currency = Util.GetCurrencyStr(originalCurrency),
+                destination_currency = Util.GetCurrencyStr(destinationCurrency),
+                amount
+            };
+
+            var requestBody = new HttpRequestMessage(HttpMethod.Post, Endpoints.ExchangeRates)
+            {
+                Content = new StringContent(JsonConvert.SerializeObject(payload), Encoding.UTF8, "application/json")
+            };
+
+            return await RaveApiRequest.Request(requestBody);
+        }
+    }
+
 }

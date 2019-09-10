@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 using Rave.api;
 using Newtonsoft.Json;
 using Rave.config;
+using Rave.Models;
 
 
 namespace Rave.Models
 {
-    public class CurrencyService
-    {
-        //Conversion and selection of different currencies
-    }
+    
 }

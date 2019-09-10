@@ -1,6 +1,7 @@
 ﻿using System;
 using Rave.Models.Charge;
 using Rave.Models.Account;
+using Rave.Models.Card;
 using Rave.Models.Validation;
 using NUnit.Framework;
 using System.Diagnostics;
@@ -11,48 +12,50 @@ namespace Rave
     class Program
     {
         //Test for direct debit
-        //private static string transRef = "Ref105";
-        private static string sampleSuccessfulFwRef = "ACHG-1521196019857";
-        public void ValidateAccountTest()
+        private static string tranxRef = "454839";
+
+        public static void ValidateCardCharge(string txRef)
         {
             var raveConfig = new RaveConfig("FLWPUBK_TEST-dc4f2335f2c3a75e9b723d81414fc131-X", "FLWSECK_TEST-ea98d7c9a29c80779060fa435fb8efdb-X", false);
-            var accountValidate = new ValidateAccountCharge(raveConfig);
-            var val = accountValidate.ValidateCharge(new ValidateAccountChargeParams("FLWPUBK_TEST-dc4f2335f2c3a75e9b723d81414fc131-X", sampleSuccessfulFwRef, "12345")).Result;
+            var cardValidation = new ValidateCardCharge(raveConfig);
+            var val = cardValidation.ValidateCharge(new ValidateCardParams("FLWPUBK_TEST-dc4f2335f2c3a75e9b723d81414fc131-X", txRef, "12345")).Result;
 
             Trace.WriteLine($"Status: {val.Status}");
             Trace.WriteLine($"Message: {val.Message}");
-            if (val.Status == "error")
-            {
-                var desiredResponses = new List<string> { "Transaction already complete", "TRANSACTION ALREADY VERIFIED" }; // These are also accepted values depending on whether the transaction has be verified before
-                Assert.IsTrue(desiredResponses.Contains(val.Message));
-            }
-            else
-            {
-                Assert.IsNotNull(val.Data);
-                Assert.AreEqual("success", val.Status);
-                Assert.AreEqual("Charge Complete", val.Message);
-            }
+            Assert.IsNotNull(val.Data);
+            //Trace.WriteLine($"Message: {val.Data.TX.CardChargeToken.EmbedToken}");
+            Assert.AreEqual("success", val.Status);
+            //Assert.IsFalse(string.IsNullOrEmpty(val.Data.TX.CardChargeToken.EmbedToken));
+            //Assert.IsFalse(string.IsNullOrEmpty(val.Data.TX.CardChargeToken.UserToken));
 
         }
         static void Main(string[] args)
         {
             var raveConfig = new RaveConfig("FLWPUBK_TEST-dc4f2335f2c3a75e9b723d81414fc131-X", "FLWSECK_TEST-ea98d7c9a29c80779060fa435fb8efdb-X", false);
-            var accountCharge = new ChargeAccount(raveConfig);
-            var accountParams = new AccountParams("FLWPUBK_TEST-dc4f2335f2c3a75e9b723d81414fc131-X", "FLWSECK_TEST-ea98d7c9a29c80779060fa435fb8efdb-X", "Cornelius", "Ashley", "user@example.com", "0690000031", 509, "044", "MC-7663-YU");
-            var chargeRes = accountCharge.Charge(accountParams).Result;
-
-            if (chargeRes.Data.Status == "success-pending-validation")
+            var cardCharge = new ChargeCard(raveConfig);
+            var cardParams = new CardParams("FLWPUBK_TEST-dc4f2335f2c3a75e9b723d81414fc131-X", "FLWSECK_TEST-ea98d7c9a29c80779060fa435fb8efdb-X", "Cornelius", "Ashley-Osuzoka", "korneliosyaovi@gmail.com", 105, "USD")
             {
-                //If it asks for otp. Do request again
-                accountParams.Otp = "12345";
-                chargeRes = accountCharge.Charge(accountParams).Result;
+                CardNo = "5438898014560229",
+                Cvv = "789",
+                Expirymonth = "09",
+                Expiryyear = "19",
+                TxRef = tranxRef
+            };
+
+            var cha = cardCharge.Charge(cardParams).Result;
+
+            if (cha.Message == "AUTH_SUGGESTION" && cha.Data.SuggestedAuth == "PIN")
+            {
+                cardParams.Pin = "3310";
+                cardParams.Otp = "12345";
+                cardParams.SuggestedAuth = "PIN";
+                cha = cardCharge.Charge(cardParams).Result;
             }
 
-            Trace.WriteLine(chargeRes.Data.ValidateInstructions.Instruction);
-            Trace.WriteLine(chargeRes.Data.ValidateInstructions.Valparams);
-            Trace.WriteLine(chargeRes.Data.ValidateInstruction);
-            Assert.IsNotNull(chargeRes.Data);
-            Assert.AreEqual("success", chargeRes.Status);
+            Assert.IsNotNull(cha.Data);
+            Assert.AreEqual("success", cha.Status);
+            ValidateCardCharge(cha.Data.FlwRef);
+
 
 
         }
