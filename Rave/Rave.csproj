@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="data\" />
+    <Folder Include="Models\Mobile\" />
   </ItemGroup>
 
 </Project>
