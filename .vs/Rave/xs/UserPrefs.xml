@@ -1,0 +1,36 @@
+﻿<Properties StartupConfiguration="{42974268-3D72-4291-8989-BDE08FA8AB98}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Rave/Models/Charge/ChargeMobileMoney.cs">
+    <Files>
+      <File FileName="Rave/Models/Mobile/MobileMoney/MobileMoneyParams.cs" Line="88" Column="1" />
+      <File FileName="Rave/Models/Charge/ChargeMobileMoney.cs" Line="34" Column="1" />
+      <File FileName="Rave/Models/Mobile/MobileMoney/MobileMoney.cs" Line="20" Column="1" />
+      <File FileName="Rave/Models/Mobile/MobileMoney/ResponseData.cs" Line="11" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Rave" expanded="True">
+            <Node name="Rave" expanded="True">
+              <Node name="Models" expanded="True">
+                <Node name="Card" expanded="True" />
+                <Node name="Charge" expanded="True">
+                  <Node name="ChargeMobileMoney.cs" selected="True" />
+                </Node>
+                <Node name="Mobile" expanded="True">
+                  <Node name="MobileMoney" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Rave PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
