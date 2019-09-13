@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Rave.api;
-using Rave.config;
 using Newtonsoft.Json;
 
-namespace Rave.Models.VirtualCard
+namespace Rave.Models.Subaccount
 {
-    public class VirtualCard
+    public class SubAccounts
     {
-        public VirtualCard(RaveConfig config)
+        public SubAccounts(RaveConfig config)
         {
             Config = config;
             PayDataEncrypt = new DataEncryption();
@@ -22,17 +21,16 @@ namespace Rave.Models.VirtualCard
         private IDataEncryption PayDataEncrypt { get; }
         private IRaveRequest<RaveResponse<ResponseData>, ResponseData> RaveApiRequest { get; }
 
-        public async Task<RaveResponse<ResponseData>> Create(VirtualCardParams virtualCardParams)
+        public async Task<RaveResponse<ResponseData>> Create(SubAccountParams subaccountParams)
         {
             var encryptedKey = PayDataEncrypt.GetEncryptionKey(Config.SecretKey);
-            var encryptedData = PayDataEncrypt.EncryptData(encryptedKey, JsonConvert.SerializeObject(virtualCardParams));
+            var encryptedData = PayDataEncrypt.EncryptData(encryptedKey, JsonConvert.SerializeObject(subaccountParams));
 
-            var content = new StringContent(JsonConvert.SerializeObject(new { PBFPubKey = virtualCardParams.PbfPubKey, client = encryptedData, alg = "3DES-24" }), Encoding.UTF8, "application/json");
-            var requestMessage = new HttpRequestMessage(HttpMethod.Post, Endpoints.VirtualCardCreate) { Content = content };
+            var content = new StringContent(JsonConvert.SerializeObject(new { PBFPubKey = subaccountParams.PbfPubKey, client = encryptedData, alg = "3DES-24" }), Encoding.UTF8, "application/json");
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, Endpoints.SubAccountCreate) { Content = content };
 
             var result = await RaveApiRequest.Request(requestMessage);
             return result;
         }
-
     }
 }

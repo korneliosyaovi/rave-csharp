@@ -16,6 +16,7 @@ namespace Rave.Models.Charge
         public override async Task<RaveResponse<Account.ResponseData>> Charge(IParams Params, bool isRecurring = false)
         {
             var encryptedKey = PayDataEncrypt.GetEncryptionKey(Config.SecretKey);
+
             var encryptedData = PayDataEncrypt.EncryptData(encryptedKey, JsonConvert.SerializeObject(Params));
 
             var content = new StringContent(JsonConvert.SerializeObject(new { PBFPubKey = Params.PbfPubKey, client = encryptedData, alg = "3DES-24" }), Encoding.UTF8, "application/json");

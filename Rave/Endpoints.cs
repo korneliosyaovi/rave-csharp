@@ -17,6 +17,7 @@
         public const string PreauthorizeReturnOrVoid = "flwv3-pug/getpaidx/api/refundorvoid";
         public const string GetDirectBankDebitList = "flwv3-pug/getpaidx/api/flwpbf-banks.js?json=1";
         public const string VirtualCardCreate = "/v2/services/virtualcards/new";
+        public const string SubAccountCreate = "/v2/gpx/subaccounts/create";
         public const string GetBankTransferList = "/v2/banks/";
     }
 }

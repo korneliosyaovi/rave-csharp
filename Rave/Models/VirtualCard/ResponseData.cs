@@ -6,10 +6,7 @@ using Rave.api;
 
 namespace Rave.Models.VirtualCard
 {
-    public class VirtualCardResponse<T> : RaveResponse<T> where T : ResponseData
-    {
-
-    }
+    //public class VirtualCardResponse<T> : RaveResponse<T> where T : ResponseData { }
 
     public class ResponseData : Charge.ChargeResponse
     {

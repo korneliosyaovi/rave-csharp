@@ -7,6 +7,8 @@ namespace Rave.Models.Charge
     public interface IParams
     {
         string PbfPubKey { get; set; }
+
+        string SecretKey { get; set; }
         string Currency { get; set; }
         string Country { get; set; }
         decimal Amount { get; set; }

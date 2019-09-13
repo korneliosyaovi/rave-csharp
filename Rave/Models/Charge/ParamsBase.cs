@@ -14,6 +14,8 @@ namespace Rave.Models.Charge
             SecretKey = secretKey;
         }
 
+
+
         protected ParamsBase(string secretKey, string currency)
         {
             SecretKey = secretKey;
@@ -61,6 +63,7 @@ namespace Rave.Models.Charge
         [JsonProperty("PBFPubKey")]
         public string PbfPubKey { get; set; }
 
+        
         [JsonProperty("SecretKey")]
         public string SecretKey { get; set;  }
         
