@@ -9,6 +9,17 @@ namespace Rave.Models.Charge
 
     public abstract class ParamsBase : IParams
     {
+        protected ParamsBase(string secretKey)
+        {
+            SecretKey = secretKey;
+        }
+
+        protected ParamsBase(string secretKey, string currency)
+        {
+            SecretKey = secretKey;
+            Currency = currency;
+        }
+
         protected ParamsBase(string pbfPubKey, string secretKey, string firstName, string lastName, string email, string currency)
         {
             PbfPubKey = pbfPubKey;
@@ -18,6 +29,17 @@ namespace Rave.Models.Charge
             Email = email;
             Currency = currency;
             Country = "NG";
+        }
+
+        protected ParamsBase(string pbfPubKey, string secretKey, string firstName, string lastName, string email, string currency, string country)
+        {
+            PbfPubKey = pbfPubKey;
+            SecretKey = secretKey;
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            Currency = currency;
+            Country = country;
         }
 
         protected static string GetAuthType(AuthTypes authType)
