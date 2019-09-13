@@ -17,9 +17,9 @@ namespace Rave
         
         static void Main(string[] args)
         {
-            var raveConfig = new RaveConfig("FLWPUBK_TEST-dc4f2335f2c3a75e9b723d81414fc131-X", "FLWSECK_TEST-ea98d7c9a29c80779060fa435fb8efdb-X", false);
+            var raveConfig = new RaveConfig("FLWPUBK-54d9d49207af4381bb60d58d15e9a407-X", "FLWSECK-48d1d4efb35538a59372377bd3780957-X", false);
             var virtCard = new VirtualCard(raveConfig);
-            var virtCardParams = new VirtualCardParams("FLWPUBK_TEST-dc4f2335f2c3a75e9b723d81414fc131-X", "Cornelius Micheals", "USD", 340, "333 Fremont Street", "San Francisco", "California", "94105", "USA");
+            var virtCardParams = new VirtualCardParams("FLWSECK-48d1d4efb35538a59372377bd3780957-X", "Cornelius Micheals", "USD", 340, "333 Fremont Street", "San Francisco", "California", "94105", "USA");
 
             Console.WriteLine(virtCardParams);
             var cha = virtCard.Create(virtCardParams).Result;
