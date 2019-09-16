@@ -80,7 +80,69 @@ var cha = cardCharge.Charge(Payload).Result;
 ```
 
 6. Validate Transaction
+```
+Assert.IsNotNull(cha.Data);
+            Assert.AreEqual("success", cha.Status);
+            Validate.ValidateCardCharge(cha.Data.FlwRef);
+```
 
+The complete card charge and validation flow:
+```
+    class Program
+    {
+        private static string tranxRef = "454839";
+        private static string PbKey = "";
+        private static string ScKey = "";
+        static void Main(string[] args)
+        {
+            
+            var raveConfig = new RaveConfig(recurringPbKey, recurringScKey, false);
+            var cardCharge = new CardCharge(raveConfig);
+
+            var cardParams = new CardChargeParams(PbKey, "Anonymous", "Customer", "tester@example.com", 2100)
+            { CardNo = "5438898014560229", Cvv = "789", Expirymonth = "09", Expiryyear = "19", TxRef = tranxRef }
+            ;
+            var cha = cardCharge.Charge(cardParams).Result;
+
+
+            if (cha.Message == "AUTH_SUGGESTION" && cha.Data.SuggestedAuth == "PIN")
+            {
+                cardParams.Pin = "3310";
+                cardParams.Otp = "12345";
+                cardParams.SuggestedAuth = "PIN";
+                cha = cardCharge.Charge(cardParams).Result;
+            }
+
+
+            Assert.IsNotNull(cha.Data);
+            Assert.AreEqual("success", cha.Status);
+            Validate.ValidateCardCharge(cha.Data.FlwRef);
+
+
+        }
+    }
+    
+    class Validate
+    {
+        private static string tranxRef = "454839";
+        private static string PbKey = "";
+        private static string ScKey = "";
+        public static void ValidateCardCharge(string txRef)
+        {
+            var raveConfig = new RaveConfig(PbKey, ScKey, false);
+            var cardValidation = new ValidateCardCharge(raveConfig);
+            var val = cardValidation.ValidateCharge(new ValidateCardParams(PbKey, txRef, "12345")).Result;
+
+            Trace.WriteLine($"Status: {val.Status}");
+            Trace.WriteLine($"Message: {val.Message}");
+            Assert.IsNotNull(val.Data);
+            Assert.AreEqual("success", val.Status);
+
+        }
+    }
+```
+
+## Account Payments
 
 ## Support
 For further assistance in using the SDK, you can contact the Developers on [Slack](https://join.slack.com/t/flutterwavedevelopers/shared_invite/enQtNTk3MjgxMjU3ODI5LWFkMjBkYTc0ZGJhM2Q5MTY3YjFkYzAyYmM1ZDZjZjUwMjE4YTc2NjQ1ZGM5ZWE4NDUxMzc4MmExYmI1Yjg5ZWU) and [Email](developers@flutterwavego.com). You can also check out some awesome Beta features [here](https://developer.flutterwave.com/reference#introduction). 
