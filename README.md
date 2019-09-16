@@ -1,4 +1,7 @@
 # Rave .NET SDK
+## Description
+The Rave .NET SDK makes it easy to add Rave support to your .NET web application and is built on Rave's REST APIs.
+
 ## Introduction
 The Rave .NET Library implements the following payment services:
 
@@ -12,21 +15,26 @@ The Library also implements the following features:
 3. Virtual Cards.
 4. Currencies.
 
+## Prerequisites
+- .NET 4.0 or later
+
+## Installation
+
 ## Configuration
 
 1. Add all relevant modules
 ```
+using System.Diagnostics;
+using System.Collections.Generic;
+using Rave.Models.MobileMoney;
+using Rave.Models.VirtualCard;
+using Rave.Models.Subaccount;
 using Rave.Models;
 using Rave.Models.Charge;
 using Rave.Models.Account;
 using Rave.Models.Card;
 using Rave.Models.Validation;
 using NUnit.Framework;
-using System.Diagnostics;
-using System.Collections.Generic;
-using Rave.Models.MobileMoney;
-using Rave.Models.VirtualCard;
-using Rave.Models.Subaccount;
 ```
 
 2. Pass Public and Secret keys as variables for configuration.
@@ -35,6 +43,8 @@ private static string PbKey = "pass your public key here"
 private static string ScKey = "pass your secret key here"
 var raveConfig = new RaveConfig(PbKey, SCKey, false);
 ```
+
+
 
 # Payments
 ## Card Payments
@@ -68,3 +78,9 @@ var cha = cardCharge.Charge(Payload).Result;
                 cha = cardCharge.Charge(Payload).Result;
             }
 ```
+
+6. Validate Transaction
+
+
+## Support
+For further assistance in using the SDK, you can contact the Developers on [Slack](https://join.slack.com/t/flutterwavedevelopers/shared_invite/enQtNTk3MjgxMjU3ODI5LWFkMjBkYTc0ZGJhM2Q5MTY3YjFkYzAyYmM1ZDZjZjUwMjE4YTc2NjQ1ZGM5ZWE4NDUxMzc4MmExYmI1Yjg5ZWU) and [Email](developers@flutterwavego.com). You can also check out some awesome Beta features [here](https://developer.flutterwave.com/reference#introduction). 
