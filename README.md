@@ -11,12 +11,12 @@ The Rave .NET Library implements the following payment services:
 
 The Library also implements the following features:
 1. Tokeniztion (in development).
-2. Subaccounts.
-3. Virtual Cards.
+2. Subaccounts (in development).
+3. Virtual Cards (in development).
 4. Currencies.
 
 ## Prerequisites
-- .NET 4.0 or later
+- .NET 4.5 or later
 
 ## Installation
 
@@ -55,7 +55,7 @@ This implements Card payments for Pin, 3D-Secure, VBV and PreAuth transactions.
 
 2. Configure the card charge
 ```
-var cardCharge = new CardCharge(raveConfig);
+var cardCharge = new ChargeCard(raveConfig);
 ```
 
 3. Pass Card parameters as payload.
@@ -86,7 +86,7 @@ Assert.IsNotNull(cha.Data);
             Validate.ValidateCardCharge(cha.Data.FlwRef);
 ```
 
-The complete card charge and validation flow:
+**The complete card charge and validation flow:**
 ```
     class Program
     {
@@ -143,6 +143,109 @@ The complete card charge and validation flow:
 ```
 
 ## Account Payments
+This implements direct debit transactions from Bank accounts.
+
+## Usage
+1. Complete basic configuration following the configuration steps.
+
+2. Configure the Account charge
+```
+var accountCharge = new ChargeAccount(raveConfig);
+```
+
+3. Pass Account parameters as payload.
+```
+var Payload = new AccountParams(PbKey, "Anonymous", "customer", "user@example.com", "0690000031", 1000.00m, "044", "MC-0292920");
+```
+
+4. Charge Account.
+```
+var chargeResponse = await accountCharge.Charge(accountParams);
+
+if (chargeResponse.Data.Status == "success-pending-validation")
+{
+      // This usually means the user needs to validate the transaction with an OTP
+      accountParams.Otp = "12345";
+      chargeResponse = accountCharge.Charge(accountParams).Result;
+}
+
+Trace.WriteLine(chargeResponse.Data.ValidateInstructions.Instruction);
+Trace.WriteLine(chargeResponse.Data.ValidateInstructions.Valparams);
+Trace.WriteLine(chargeResponse.Data.ValidateInstruction);
+Assert.IsNotNull(chargeResponse.Data);
+Assert.AreEqual("success", chargeResponse.Status);
+            
+```
+
+5. Validate the Transacation
+```
+ValidateAccountCharge(chargeResponse.Data.FlwRef);
+```
+**The complete card charge and validation flow:**
+```
+class Program
+    {
+        private static string tranxRef = "454839";
+        private static string PbKey = "";
+        private static string ScKey = "";
+        static void Main(string[] args)
+        {
+            
+            var raveConfig = new RaveConfig(recurringPbKey, recurringScKey, false);
+            var accountCharge = new ChargeAccount(raveConfig);
+
+            var Payload = new AccountParams(PbKey, "Anonymous", "customer", "user@example.com", "0690000031", 1000.00m, "044", "MC-0292920");
+            var chargeResponse = await accountCharge.Charge(accountParams);
+
+
+            if (chargeResponse.Data.Status == "success-pending-validation")
+            {
+                // This usually means the user needs to validate the transaction with an OTP
+                accountParams.Otp = "12345";
+                chargeResponse = accountCharge.Charge(accountParams).Result;
+            }
+
+
+            Trace.WriteLine(chargeResponse.Data.ValidateInstructions.Instruction);
+            Trace.WriteLine(chargeResponse.Data.ValidateInstructions.Valparams);
+            Trace.WriteLine(chargeResponse.Data.ValidateInstruction);
+            Assert.IsNotNull(chargeResponse.Data);
+            Assert.AreEqual("success", chargeResponse.Status);
+            ValidateAccountCharge(chargeResponse.Data.FlwRef);
+
+
+        }
+    }
+    
+    class Validate
+    {
+        private static string PbKey = "";
+        private static string ScKey = "";
+        private static string transRef = "Ref105";
+        private static string sampleSuccessfulFwRef = "ACHG-1521196019857";
+        public static void ValidateAccountCharge(string txRef)
+        {
+            var raveConfig = new RaveConfig(PbKey, ScKey, false);
+            var accountValidation = new ValidateAccountCharge(raveConfig);
+            var val = accountValidation.ValidateCharge(new ValidateAccountParams(PbKey, txRef, "12345")).Result;
+
+            Trace.WriteLine($"Status: {val.Status}");
+            Trace.WriteLine($"Message: {val.Message}");
+            if (val.Status == "error")
+            {
+                var desiredResponses = new List<string> { "Transaction already complete", "TRANSACTION ALREADY VERIFIED" }; // These are also accepted values depending on whether the transaction has be verified before
+                Assert.IsTrue(desiredResponses.Contains(val.Message));
+            }
+            else
+            {
+                Assert.IsNotNull(val.Data);
+                Assert.AreEqual("success", val.Status);
+                Assert.AreEqual("Charge Complete", val.Message);
+            }
+
+        }
+    }
+```
 
 ## Support
 For further assistance in using the SDK, you can contact the Developers on [Slack](https://join.slack.com/t/flutterwavedevelopers/shared_invite/enQtNTk3MjgxMjU3ODI5LWFkMjBkYTc0ZGJhM2Q5MTY3YjFkYzAyYmM1ZDZjZjUwMjE4YTc2NjQ1ZGM5ZWE4NDUxMzc4MmExYmI1Yjg5ZWU) and [Email](developers@flutterwavego.com). You can also check out some awesome Beta features [here](https://developer.flutterwave.com/reference#introduction). 
