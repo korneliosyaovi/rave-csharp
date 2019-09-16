@@ -1,5 +1,5 @@
 # Rave .NET SDK
-##Introduction
+## Introduction
 The Rave .NET Library implements the following payment services:
 
 1. Card Payments
@@ -15,3 +15,11 @@ The Library also implements the following features:
 
 # Payments
 ## Card Payments
+This implements Card payments for Pin, 3D-Secure, VBV and PreAuth transactions.
+
+## Usage
+1. Pass Public and Secret keys as variables for configuration.
+```
+private static string PbKey = "pass your public key here"
+private static string ScKey = "pass your secret key here"
+```
