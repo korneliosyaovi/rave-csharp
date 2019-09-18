@@ -117,7 +117,7 @@ Assert.IsNotNull(cha.Data);
             var raveConfig = new RaveConfig(recurringPbKey, recurringScKey, false);
             var cardCharge = new CardCharge(raveConfig);
 
-            var cardParams = new CardChargeParams(PbKey, "Anonymous", "Customer", "tester@example.com", 2100)
+            var Payload = new CardChargeParams(PbKey, "Anonymous", "Customer", "tester@example.com", 2100)
             { CardNo = "5438898014560229", Cvv = "789", Expirymonth = "09", Expiryyear = "19", TxRef = tranxRef }
             ;
             var cha = cardCharge.Charge(cardParams).Result;
@@ -128,7 +128,7 @@ Assert.IsNotNull(cha.Data);
                 cardParams.Pin = "3310";
                 cardParams.Otp = "12345";
                 cardParams.SuggestedAuth = "PIN";
-                cha = cardCharge.Charge(cardParams).Result;
+                cha = cardCharge.Charge(Payload).Result;
             }
 
 
@@ -309,7 +309,34 @@ The payload parameters differ for different countries, currencies and payment ty
 | Ghana `GH` | `mobilemoneygh` | GHS | `MTN, VODAFONE, TIGO` |
 | Kenya `KE` | `mpesa` | KES |    
 | Rwanda `NG` | `mobilemoneygh` | RWF | `RWF` |
-| Uganda `UG` | `mobilemoneyuganda` | UGX | `UGX` |
 | Zambia `NG` |  `mobilemoneyzambia` | ZMW | `MTN` |
+| Uganda `UG` | `mobilemoneyuganda` | UGX | `UGX` |
+
+4. Carry out mobile money charge
+```
+var cha = mobilemoney.Charge(Payload).Result;
+```
+
+**The Complete flow for mobile money charge:**
+```
+class Program
+    {
+        private static string tranxRef = "454839";
+        private static string PbKey = "";
+        private static string ScKey = "";
+        static void Main(string[] args)
+        {
+            
+            var raveConfig = new RaveConfig(recurringPbKey, recurringScKey, false);
+            var mobilemoney = new ChargeMobileMoney(raveConfig);
+
+            var Payload = new MobileMoneyParams(PbKey, ScKey, "Anonymous", "customer", "user@example.com",  1055, "GHS", "054709929220", "MTN", "GH", "mobilemoneygh", tranxRef);
+            var cha = mobilemoney.Charge(Payload).Result;
+
+            Assert.IsNotNull(cha.Data);
+            Assert.AreEqual("success", cha.Status);
+        }
+```
+
 ## Support
 For further assistance in using the SDK, you can contact the Developers on [Slack](https://join.slack.com/t/flutterwavedevelopers/shared_invite/enQtNTk3MjgxMjU3ODI5LWFkMjBkYTc0ZGJhM2Q5MTY3YjFkYzAyYmM1ZDZjZjUwMjE4YTc2NjQ1ZGM5ZWE4NDUxMzc4MmExYmI1Yjg5ZWU) and [Email](mailto:developers@flutterwavego.com). You can also check out some awesome Beta features [here](https://developer.flutterwave.com/reference#introduction). 
