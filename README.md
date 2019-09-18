@@ -14,6 +14,8 @@ The Library also implements the following features:
 2. Subaccounts (in development).
 3. Virtual Cards (in development).
 4. Currencies.
+5. Pre-Authorisation.
+6. Refunds.
 
 ## Prerequisites
 - .NET 4.5 or later
@@ -59,6 +61,22 @@ var cardCharge = new ChargeCard(raveConfig);
 ```
 
 3. Pass Card parameters as payload.
+The payload should contain: 
+- `Public key` 
+- `First name`
+- `Last name` 
+- `Email address` 
+- `Amount`
+- `Card details.` 
+
+These card details include:
+
+- `Card number`
+- `CVV`
+- `Expiry month`
+- `Expiry year`
+- `Trans Ref`
+
 ```
 `var Payload = new CardParams(PbKey, "Anonymous", "Customer", "tester@example.com", 2100){ cardNo = "5438898014560229", Cvv = "789", Expirymonth = "09", Expiryyear = "19", TxRef = tranxRef}
 ```
@@ -143,7 +161,7 @@ Assert.IsNotNull(cha.Data);
 ```
 
 ## Account Payments
-This implements direct debit transactions from Bank accounts.
+This implements direct debit transactions from Bank accounts. 
 
 ## Usage
 1. Complete basic configuration following the configuration steps.
@@ -153,7 +171,16 @@ This implements direct debit transactions from Bank accounts.
 var accountCharge = new ChargeAccount(raveConfig);
 ```
 
-3. Pass Account parameters as payload.
+3. Pass Account parameters as payload. The payload should contain: 
+- `Public key` 
+- `First name`
+- `Last name` 
+- `Email address`
+- `Account number`
+- `Amount`
+- `Bank code.`
+- `Trans Ref`
+
 ```
 var Payload = new AccountParams(PbKey, "Anonymous", "customer", "user@example.com", "0690000031", 1000.00m, "044", "MC-0292920");
 ```
@@ -247,5 +274,42 @@ class Program
     }
 ```
 
+## Mobile Money Payments
+This implements Mpesa, Ghana, Uganda, Zambia and Rwanda Mobile money transactions for customers.
+
+## Usage
+1. Complete basic configuration following the configuration steps.
+
+2. Configure the Mobile money charge
+```
+var mobilemoney = new ChargeMobileMoney(raveConfig);
+```
+
+3. Pass mobile money parameters as payload. The payload should contain: 
+- `Public key`
+- `Secret key`
+- `First name`
+- `Last name` 
+- `Email address`
+- `Amount`
+- `Currency`
+- `Mobile number`
+- `Network`
+- `Country`
+- `Payment Type`
+- `Trans Ref`
+
+```
+var Payload = new MobileMoneyParams(PbKey, ScKey, "Anonymous", "customer", "user@example.com",  1055, "GHS", "054709929220", "network", "country", "paymentType", "MC-0292920");
+```
+The payload parameters differ for different countries, currencies and payment types.
+
+| Country | Payment Type | Currency | Network |
+| ------- | ------------ | -------- | ------- |
+| Ghana `GH` | `mobilemoneygh` | GHS | `MTN, VODAFONE, TIGO` |
+| Kenya `KE` | `mpesa` | KES |    
+| Rwanda `NG` | `mobilemoneygh` | RWF | `RWF` |
+| Uganda `UG` | `mobilemoneyuganda` | UGX | `UGX` |
+| Zambia `NG` |  `mobilemoneyzambia` | ZMW | `MTN` |
 ## Support
 For further assistance in using the SDK, you can contact the Developers on [Slack](https://join.slack.com/t/flutterwavedevelopers/shared_invite/enQtNTk3MjgxMjU3ODI5LWFkMjBkYTc0ZGJhM2Q5MTY3YjFkYzAyYmM1ZDZjZjUwMjE4YTc2NjQ1ZGM5ZWE4NDUxMzc4MmExYmI1Yjg5ZWU) and [Email](mailto:developers@flutterwavego.com). You can also check out some awesome Beta features [here](https://developer.flutterwave.com/reference#introduction). 
