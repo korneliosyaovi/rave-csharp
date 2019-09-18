@@ -304,13 +304,13 @@ var Payload = new MobileMoneyParams(PbKey, ScKey, "Anonymous", "customer", "user
 ```
 The payload parameters differ for different countries, currencies and payment types.
 
-| Country | Payment Type | Currency | Network |
-| ------- | ------------ | -------- | ------- |
-| Ghana `GH` | `mobilemoneygh` | GHS | `MTN, VODAFONE, TIGO` |
-| Kenya `KE` | `mpesa` | KES |    
-| Rwanda `NG` | `mobilemoneygh` | RWF | `RWF` |
-| Zambia `NG` |  `mobilemoneyzambia` | ZMW | `MTN` |
-| Uganda `UG` | `mobilemoneyuganda` | UGX | `UGX` |
+| Country | Payment Type | Country code | Currency | Network |
+| ------- | ------------ | ------------ | -------- | ------- |
+| Ghana | `mobilemoneygh` | `GH` | GHS | `MTN, VODAFONE, TIGO` |
+| Kenya | `mpesa` | `KE` | KES |    
+| Rwanda | `mobilemoneygh` | `NG` | RWF | `RWF` |
+| Zambia |  `mobilemoneyzambia` | `NG` | ZMW | `MTN` |
+| Uganda | `mobilemoneyuganda` | `UG` | UGX | `UGX` |
 
 4. Carry out mobile money charge
 ```
