@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
@@ -16,4 +16,7 @@
     <Folder Include="Models\Mobile\MobileMoney\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Program.cs" />
+  </ItemGroup>
 </Project>

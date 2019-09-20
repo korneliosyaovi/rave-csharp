@@ -14,8 +14,6 @@ namespace Rave.Models.Charge
             SecretKey = secretKey;
         }
 
-
-
         protected ParamsBase(string secretKey, string currency)
         {
             SecretKey = secretKey;

@@ -1,0 +1,17 @@
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/bin/Debug/netcoreapp2.1/RaveTests.deps.json
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/bin/Debug/netcoreapp2.1/RaveTests.runtimeconfig.json
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/bin/Debug/netcoreapp2.1/RaveTests.runtimeconfig.dev.json
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/bin/Debug/netcoreapp2.1/RaveTests.dll
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/bin/Debug/netcoreapp2.1/RaveTests.pdb
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/bin/Debug/netcoreapp2.1/Rave.dll
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/bin/Debug/netcoreapp2.1/Rave.pdb
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.csprojAssemblyReference.cache
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.csproj.CoreCompileInputs.cache
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.AssemblyInfoInputs.cache
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.AssemblyInfo.cs
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.csproj.CopyComplete
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.dll
+/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.pdb

@@ -1,30 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Cornelius Osuzoka\\source\\repos\\Rave\\Rave\\Rave.csproj": {}
+    "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/Rave.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Cornelius Osuzoka\\source\\repos\\Rave\\Rave\\Rave.csproj": {
+    "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/Rave.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Cornelius Osuzoka\\source\\repos\\Rave\\Rave\\Rave.csproj",
+        "projectUniqueName": "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/Rave.csproj",
         "projectName": "Rave",
-        "projectPath": "C:\\Users\\Cornelius Osuzoka\\source\\repos\\Rave\\Rave\\Rave.csproj",
-        "packagesPath": "C:\\Users\\Cornelius Osuzoka\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Cornelius Osuzoka\\source\\repos\\Rave\\Rave\\obj\\",
+        "projectPath": "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/Rave.csproj",
+        "packagesPath": "/Users/cleopatradouglas/.nuget/packages/",
+        "outputPath": "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Cornelius Osuzoka\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/cleopatradouglas/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

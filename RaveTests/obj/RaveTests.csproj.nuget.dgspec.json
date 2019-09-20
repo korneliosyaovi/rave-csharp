@@ -1,0 +1,131 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/RaveTests.csproj": {}
+  },
+  "projects": {
+    "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/Rave.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/Rave.csproj",
+        "projectName": "Rave",
+        "projectPath": "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/Rave.csproj",
+        "packagesPath": "/Users/cleopatradouglas/.nuget/packages/",
+        "outputPath": "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/cleopatradouglas/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/RaveTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/RaveTests.csproj",
+        "projectName": "RaveTests",
+        "projectPath": "/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/RaveTests.csproj",
+        "packagesPath": "/Users/cleopatradouglas/.nuget/packages/",
+        "outputPath": "/Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/cleopatradouglas/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/Rave.csproj": {
+                "projectPath": "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/Rave.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[1.3.2, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[1.3.2, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.9.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

@@ -16,10 +16,14 @@ namespace Rave.Models.Subaccount
             BusinessEmail = businessEmail;
             BusinessContact = businessContact;
             BusinessMobile = businessMobile;
+            seckey = base.SecretKey;
         }
 
         [JsonProperty("account_bank")]
         public string AccountBank { get; set; }
+
+        [JsonProperty("seckey")]
+        public string seckey { get; set; }
 
         [JsonProperty("account_number")]
         public string AccountNumber { get; set; }
