@@ -14,20 +14,12 @@ namespace RaveTests
     public class UnitTest1
     {
 
-        private const string txRef = "549494";
-        private const string successfulFwRef = "FLW00920971";
-        private const string unCapturedFwRef = "FLW00920978";
-        private static string tranxRef = "454839";
-        private static string PbKey = "FLWPUBK_TEST-dc4f2335f2c3a75e9b723d81414fc131-X";
-        private static string ScKey = "FLWSECK_TEST-ea98d7c9a29c80779060fa435fb8efdb-X";
-
-        //private const string txRef = Environment.GetEnvironmentVariable("txRef");
-        //private const string successfulFwRef = Environment.GetEnvironmentVariable("successfulFwRef");
-        //private const string unCapturedFwRef = Environment.GetEnvironmentVariable("unCapturedFwRef");
-        //private static string tranxRef = Environment.GetEnvironmentVariable("tranxRef");
-        //private static string PbKey = Environment.GetEnvironmentVariable("PbKey");
-        //private static string ScKey = Environment.GetEnvironmentVariable("ScKey");
-
+        private const string txRef = Environment.GetEnvironmentVariable("txRef");
+        private const string successfulFwRef = Environment.GetEnvironmentVariable("successfulFwRef");
+        private const string unCapturedFwRef = Environment.GetEnvironmentVariable("unCapturedFwRef");
+        private static string tranxRef = Environment.GetEnvironmentVariable("tranxRef");
+        private static string PbKey = Environment.GetEnvironmentVariable("PbKey");
+        private static string ScKey = Environment.GetEnvironmentVariable("ScKey");
 
 
         [TestMethod]
