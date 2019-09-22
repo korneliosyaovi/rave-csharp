@@ -1,0 +1,36 @@
+﻿using System; using System.Collections.Generic; using System.Text; using System.Net.Http; using System.Threading.Tasks; using Rave.api; using Rave.config; using Newtonsoft.Json;
+using Rave.Models.Account;
+
+namespace Rave.Models.Charge
+{
+    public class SubAccount : Base<RaveResponse<Account.ResponseData>, Account.ResponseData>
+    {
+
+        public SubAccount(RaveConfig conf) : base(conf) { }
+
+        public override async Task<RaveResponse<Account.ResponseData>> CreateSubaccount(IParams Params, bool isRecurring = false)
+        {
+            var content = new StringContent(JsonConvert.SerializeObject(new { seckey = Params.SecretKey, account_bank ="044", country = "NG",  account_number = "0690000031", business_name ="TEST BUSINESS", business_email ="user@example.com", business_contact="0900000000"}), Encoding.UTF8, "application/json");
+            Console.WriteLine(content);
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, Endpoints.SubAccountCreate) { Content = content };             var result = await RaveApiRequest.Request(requestMessage);
+
+            Console.WriteLine(result);             return result; 
+        }
+    }
+
+    //public class FetchSubAccount : Base<RaveResponse<Account.ResponseData>, Account.ResponseData>
+    //{
+    //    public override Task<RaveResponse<ResponseData>> Charge(IParams Params, bool isRecurring = false)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
+
+    //public class ListSubAccount : Base<RaveResponse<Account.ResponseData>, Account.ResponseData>
+    //{
+    //    public override Task<RaveResponse<ResponseData>> Charge(IParams Params, bool isRecurring = false)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
+}
