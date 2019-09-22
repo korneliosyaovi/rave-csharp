@@ -97,13 +97,6 @@ var cha = cardCharge.Charge(Payload).Result;
             }
 ```
 
-6. Validate Transaction
-```
-Assert.IsNotNull(cha.Data);
-            Assert.AreEqual("success", cha.Status);
-            Validate.ValidateCardCharge(cha.Data.FlwRef);
-```
-
 **The complete card charge and validation flow:**
 ```
     class Program
@@ -132,32 +125,9 @@ Assert.IsNotNull(cha.Data);
             }
 
 
-            Assert.IsNotNull(cha.Data);
-            Assert.AreEqual("success", cha.Status);
-            Validate.ValidateCardCharge(cha.Data.FlwRef);
-
-
         }
     }
     
-    class Validate
-    {
-        private static string tranxRef = "454839";
-        private static string PbKey = "";
-        private static string ScKey = "";
-        public static void ValidateCardCharge(string txRef)
-        {
-            var raveConfig = new RaveConfig(PbKey, ScKey, false);
-            var cardValidation = new ValidateCardCharge(raveConfig);
-            var val = cardValidation.ValidateCharge(new ValidateCardParams(PbKey, txRef, "12345")).Result;
-
-            Trace.WriteLine($"Status: {val.Status}");
-            Trace.WriteLine($"Message: {val.Message}");
-            Assert.IsNotNull(val.Data);
-            Assert.AreEqual("success", val.Status);
-
-        }
-    }
 ```
 
 ## Account Payments
@@ -199,16 +169,9 @@ if (chargeResponse.Data.Status == "success-pending-validation")
 
 Trace.WriteLine(chargeResponse.Data.ValidateInstructions.Instruction);
 Trace.WriteLine(chargeResponse.Data.ValidateInstructions.Valparams);
-Trace.WriteLine(chargeResponse.Data.ValidateInstruction);
-Assert.IsNotNull(chargeResponse.Data);
-Assert.AreEqual("success", chargeResponse.Status);
-            
+Trace.WriteLine(chargeResponse.Data.ValidateInstruction);          
 ```
 
-5. Validate the Transacation
-```
-ValidateAccountCharge(chargeResponse.Data.FlwRef);
-```
 **The complete card charge and validation flow:**
 ```
 class Program
@@ -237,42 +200,12 @@ class Program
             Trace.WriteLine(chargeResponse.Data.ValidateInstructions.Instruction);
             Trace.WriteLine(chargeResponse.Data.ValidateInstructions.Valparams);
             Trace.WriteLine(chargeResponse.Data.ValidateInstruction);
-            Assert.IsNotNull(chargeResponse.Data);
-            Assert.AreEqual("success", chargeResponse.Status);
             ValidateAccountCharge(chargeResponse.Data.FlwRef);
 
 
         }
     }
     
-    class Validate
-    {
-        private static string PbKey = "";
-        private static string ScKey = "";
-        private static string transRef = "Ref105";
-        private static string sampleSuccessfulFwRef = "ACHG-1521196019857";
-        public static void ValidateAccountCharge(string txRef)
-        {
-            var raveConfig = new RaveConfig(PbKey, ScKey, false);
-            var accountValidation = new ValidateAccountCharge(raveConfig);
-            var val = accountValidation.ValidateCharge(new ValidateAccountChargeParams(PbKey, txRef, "12345")).Result;
-
-            Trace.WriteLine($"Status: {val.Status}");
-            Trace.WriteLine($"Message: {val.Message}");
-            if (val.Status == "error")
-            {
-                var desiredResponses = new List<string> { "Transaction already complete", "TRANSACTION ALREADY VERIFIED" }; // These are also accepted values depending on whether the transaction has be verified before
-                Assert.IsTrue(desiredResponses.Contains(val.Message));
-            }
-            else
-            {
-                Assert.IsNotNull(val.Data);
-                Assert.AreEqual("success", val.Status);
-                Assert.AreEqual("Charge Complete", val.Message);
-            }
-
-        }
-    }
 ```
 
 ## Mobile Money Payments
@@ -333,9 +266,6 @@ class Program
 
             var Payload = new MobileMoneyParams(PbKey, ScKey, "Anonymous", "customer", "user@example.com",  1055, "GHS", "054709929220", "MTN", "GH", "mobilemoneygh", tranxRef);
             var cha = mobilemoney.Charge(Payload).Result;
-
-            Assert.IsNotNull(cha.Data);
-            Assert.AreEqual("success", cha.Status);
         }
 ```
 
