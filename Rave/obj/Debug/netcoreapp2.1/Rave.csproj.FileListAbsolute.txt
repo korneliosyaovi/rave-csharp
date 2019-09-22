@@ -19,12 +19,11 @@ C:/Users/Cornelius Osuzoka/source/repos/Rave/Rave/obj/Debug/netcoreapp2.1/Rave.A
 C:/Users/Cornelius Osuzoka/source/repos/Rave/Rave/obj/Debug/netcoreapp2.1/Rave.dll
 C:/Users/Cornelius Osuzoka/source/repos/Rave/Rave/obj/Debug/netcoreapp2.1/Rave.pdb
 C:/Users/Cornelius Osuzoka/source/repos/Rave/Rave/obj/Debug/netcoreapp2.1/Rave.csprojAssemblyReference.cache
-/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/obj/Debug/netcoreapp2.1/Rave.csprojAssemblyReference.cache
+/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/bin/Debug/netcoreapp2.1/Rave.deps.json
+/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/bin/Debug/netcoreapp2.1/Rave.dll
+/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/bin/Debug/netcoreapp2.1/Rave.pdb
 /Users/cleopatradouglas/Desktop/ravec/Rave/Rave/obj/Debug/netcoreapp2.1/Rave.csproj.CoreCompileInputs.cache
 /Users/cleopatradouglas/Desktop/ravec/Rave/Rave/obj/Debug/netcoreapp2.1/Rave.AssemblyInfoInputs.cache
 /Users/cleopatradouglas/Desktop/ravec/Rave/Rave/obj/Debug/netcoreapp2.1/Rave.AssemblyInfo.cs
 /Users/cleopatradouglas/Desktop/ravec/Rave/Rave/obj/Debug/netcoreapp2.1/Rave.dll
 /Users/cleopatradouglas/Desktop/ravec/Rave/Rave/obj/Debug/netcoreapp2.1/Rave.pdb
-/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/bin/Debug/netcoreapp2.1/Rave.deps.json
-/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/bin/Debug/netcoreapp2.1/Rave.dll
-/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/bin/Debug/netcoreapp2.1/Rave.pdb

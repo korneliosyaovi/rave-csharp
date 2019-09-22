@@ -5,6 +5,7 @@ namespace Rave.Models.Charge
     {
         public CreateVirtualCards()
         {
+
         }
     }
 }

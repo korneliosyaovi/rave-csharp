@@ -22,8 +22,6 @@ namespace RaveTests
         string ScKey = Environment.GetEnvironmentVariable("ScKey");
 
 
-
-
         [TestMethod]
         public void preauthTest()
         {
@@ -92,6 +90,19 @@ namespace RaveTests
             Assert.AreEqual("success", chargeResponse.Status);
         }
 
+
+        [TestMethod]
+        public void CreateSubAccountTest()
+        {
+            var raveConfig = new RaveConfig(PbKey, ScKey, false);
+            var subacc = new CreateSubAccount(raveConfig);
+
+            var payload = new SubAccountParams(ScKey, "0690000031", "0690000031", "TEST BUSINESS", "user@example.com", "0900000000", "0900000000");
+            var chargeResponse = subacc.Charge(payload).Result;
+
+           // Assert.IsNotNull(chargeResponse.Data);
+            Assert.AreEqual("error", chargeResponse.Status);
+        }
 
         }
 }
