@@ -179,10 +179,11 @@ var accountCharge = new ChargeAccount(raveConfig);
 - `Account number`
 - `Amount`
 - `Bank code.`
+- `Currency (NGN)`
 - `Trans Ref`
 
 ```
-var Payload = new AccountParams(PbKey, "Anonymous", "customer", "user@example.com", "0690000031", 1000.00m, "044", "MC-0292920");
+var Payload = new AccountParams(PbKey, "Anonymous", "customer", "user@example.com", "0690000031", 1000.00m, "044", "NGN", "MC-0292920");
 ```
 
 4. Charge Account.
@@ -254,7 +255,7 @@ class Program
         {
             var raveConfig = new RaveConfig(PbKey, ScKey, false);
             var accountValidation = new ValidateAccountCharge(raveConfig);
-            var val = accountValidation.ValidateCharge(new ValidateAccountParams(PbKey, txRef, "12345")).Result;
+            var val = accountValidation.ValidateCharge(new ValidateAccountChargeParams(PbKey, txRef, "12345")).Result;
 
             Trace.WriteLine($"Status: {val.Status}");
             Trace.WriteLine($"Message: {val.Message}");

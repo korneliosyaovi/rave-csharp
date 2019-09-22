@@ -1,0 +1,10 @@
+sudo: required
+
+language: csharp
+
+mono: none
+dotnet: 2.1.505
+solution: Rave.sln
+script:
+ - dotnet restore
+ - dotnet test
