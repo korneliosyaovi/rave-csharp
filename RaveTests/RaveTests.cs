@@ -14,12 +14,14 @@ namespace RaveTests
     public class UnitTest1
     {
 
-        private const string txRef = Environment.GetEnvironmentVariable("txRef");
-        private const string successfulFwRef = Environment.GetEnvironmentVariable("successfulFwRef");
-        private const string unCapturedFwRef = Environment.GetEnvironmentVariable("unCapturedFwRef");
-        private static string tranxRef = Environment.GetEnvironmentVariable("tranxRef");
-        private static string PbKey = Environment.GetEnvironmentVariable("PbKey");
-        private static string ScKey = Environment.GetEnvironmentVariable("ScKey");
+        string txRef = Environment.GetEnvironmentVariable("txRef");
+        string successfulFwRef = Environment.GetEnvironmentVariable("successfulFwRef");
+        string unCapturedFwRef = Environment.GetEnvironmentVariable("unCapturedFwRef");
+        string tranxRef = Environment.GetEnvironmentVariable("tranxRef");
+        string PbKey = Environment.GetEnvironmentVariable("PbKey");
+        string ScKey = Environment.GetEnvironmentVariable("ScKey");
+
+
 
 
         [TestMethod]
@@ -80,17 +82,16 @@ namespace RaveTests
 
             if (chargeResponse.Data.Status == "success-pending-validation")
             {
-                // This usually means the user needs to validate the transaction with an OTP
+
                 Payload.Otp = "12345";
                 chargeResponse = accountc.Charge(Payload).Result;
             }
            // ValidateAccountCharge(chargeResponse.Data.FlwRef);
 
-            //Trace.WriteLine(chargeResponse.Data.ValidateInstructions.Instruction);
-            //Trace.WriteLine(chargeResponse.Data.ValidateInstructions.Valparams);
-            //Trace.WriteLine(chargeResponse.Data.ValidateInstruction);
             Assert.IsNotNull(chargeResponse.Data);
             Assert.AreEqual("success", chargeResponse.Status);
         }
+
+
         }
 }
