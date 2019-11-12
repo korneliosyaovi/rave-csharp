@@ -7,6 +7,7 @@ using Rave.Models.Card;
 using Rave.Models.Charge;
 using Rave.Models.MobileMoney;
 using Rave.Models.Subaccount;
+using Rave.Models.Tokens;
 
 namespace RaveTests
 {
@@ -104,5 +105,30 @@ namespace RaveTests
             Assert.AreEqual("error", chargeResponse.Status);
         }
 
+        [TestMethod]
+        public void TokenTest()
+        {
+
+            var raveConfig = new RaveConfig(PbKey, ScKey, false);
+            var tokenCard = new Tokenize(raveConfig);
+
+            var card = new Card("5377283645077450", "09", "21", "789");
+
+            var tokenResponse = tokenCard.Charge(new TokensParams(raveConfig.SecretKey, "Olufumi", "Obafumiso", "olufemi@gmail.com", tranxRef, 100)).Result;
+
+
+            try
+            {
+                Assert.IsNotNull(tokenResponse.Data);
+                Assert.AreEqual(tokenResponse.Status, "success");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
         }
+
+    }
 }

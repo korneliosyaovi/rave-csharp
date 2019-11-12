@@ -4,18 +4,18 @@ using System.Text;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Rave.Models.Charge;
+using Rave.Models.Tokens;
 using Rave.api;
 
-namespace Rave.Models.Tokens
+namespace Rave.Models.Charge
 {
-    class Tokenize : Base<RaveResponse<ResponseDataTokens>, ResponseDataTokens>
+    public class Tokenize : Base<RaveResponse<ResponseDataTokens>, Tokens.ResponseDataTokens>
     {
         public Tokenize(RaveConfig config) : base(config)
         {
         }
 
-        public override async Task<RaveResponse<ResponseDataTokens>> Charge(IParams Params, bool isRecurring = false)
+        public override async Task<RaveResponse<Tokens.ResponseDataTokens>> Charge(IParams Params, bool isRecurring = false)
         {
             var encryptedKey = PayDataEncrypt.GetEncryptionKey(Config.SecretKey);
             var encryptedData = PayDataEncrypt.EncryptData(encryptedKey, JsonConvert.SerializeObject(Params));
