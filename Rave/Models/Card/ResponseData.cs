@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Rave.Models.Card
 {
-    public class ResponseData : Charge.ChargeResponse
+    public class ResponseData : Tokens.ChargeResponse
     {
         [JsonProperty("suggested_auth")]
         public string SuggestedAuth { get; set; }

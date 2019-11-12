@@ -6,7 +6,7 @@ using Rave.api;
 
 namespace Rave.Models.Account
 {
-    public class ResponseData : Charge.ChargeResponse
+    public class ResponseData : Tokens.ChargeResponse
     {
         [JsonProperty("status")]
         public string Status { get; set; }

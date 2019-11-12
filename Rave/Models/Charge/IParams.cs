@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Rave.Models.Charge
+namespace Rave.Models.Tokens
 {
     public interface IParams
     {

@@ -52,7 +52,7 @@ namespace Rave.Models
         }
     }
 
-    public class ExchangeRateRes : Charge.ChargeResponse
+    public class ExchangeRateRes : Tokens.ChargeResponse
     {
         [JsonProperty("rate")]
         public decimal Rate { get; set; }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
-using Rave.Models.Charge;
+using Rave.Models.Tokens;
 
 namespace Rave.Models.VirtualCard
 {

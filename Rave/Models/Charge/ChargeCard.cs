@@ -6,7 +6,7 @@ using System.Net.Http;
 using Rave.api;
 using Newtonsoft.Json;
 
-namespace Rave.Models.Charge
+namespace Rave.Models.Tokens
 {
     public class ChargeCard : Base<RaveResponse<Card.ResponseData>, Card.ResponseData>
     {
@@ -20,7 +20,7 @@ namespace Rave.Models.Charge
             var content = new StringContent(JsonConvert.SerializeObject(new { PBFPubKey = Params.PbfPubKey, client = encryptedData, alg = "3DES-24" }), Encoding.UTF8, "application/json");
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Post, Endpoints.CardCharge) { Content = content };
-            var result = await RaveApiRequest.Request(requestMessage);
+            var result = await RaveRequest.Request(requestMessage);
 
             return result;
         }

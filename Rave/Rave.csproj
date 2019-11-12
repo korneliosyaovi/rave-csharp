@@ -14,6 +14,8 @@
     <Folder Include="data\" />
     <Folder Include="Models\Mobile\" />
     <Folder Include="Models\Mobile\MobileMoney\" />
+    <Folder Include="Models\PaymentPlan\" />
+    <Folder Include="Models\Refunds\" />
   </ItemGroup>
 
   <ItemGroup>

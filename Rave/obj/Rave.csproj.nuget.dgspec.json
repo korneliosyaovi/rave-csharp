@@ -1,29 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/Rave.csproj": {}
+    "C:\\Users\\Cornelius Osuzoka\\source\\repos\\rave-csharp\\Rave\\Rave.csproj": {}
   },
   "projects": {
-    "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/Rave.csproj": {
+    "C:\\Users\\Cornelius Osuzoka\\source\\repos\\rave-csharp\\Rave\\Rave.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/Rave.csproj",
+        "projectUniqueName": "C:\\Users\\Cornelius Osuzoka\\source\\repos\\rave-csharp\\Rave\\Rave.csproj",
         "projectName": "Rave",
-        "projectPath": "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/Rave.csproj",
-        "packagesPath": "/Users/cleopatradouglas/.nuget/packages/",
-        "outputPath": "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/obj/",
+        "projectPath": "C:\\Users\\Cornelius Osuzoka\\source\\repos\\rave-csharp\\Rave\\Rave.csproj",
+        "packagesPath": "C:\\Users\\Cornelius Osuzoka\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Cornelius Osuzoka\\source\\repos\\rave-csharp\\Rave\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/cleopatradouglas/.config/NuGet/NuGet.Config"
+          "C:\\Users\\Cornelius Osuzoka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://ec2-34-242-183-114.eu-west-1.compute.amazonaws.com:8081/artifactory/api/nuget/virtual-maven-nuget": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
@@ -40,6 +42,7 @@
         "netcoreapp2.1": {
           "dependencies": {
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
@@ -54,10 +57,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

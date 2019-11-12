@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace Rave.Models.Charge
+namespace Rave.Models.Tokens
 {
     public enum AuthTypes { PIN, VBVSECURECODE, AVS_VBVSECURECODE }
 

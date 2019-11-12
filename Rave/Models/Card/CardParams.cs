@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Rave.Models.Charge;
+using Rave.Models.Tokens;
 using Newtonsoft.Json;
 
 namespace Rave.Models.Card

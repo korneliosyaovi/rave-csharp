@@ -8,7 +8,7 @@ namespace Rave.Models.VirtualCard
 {
     //public class VirtualCardResponse<T> : RaveResponse<T> where T : ResponseData { }
 
-    public class ResponseData : Charge.ChargeResponse
+    public class ResponseData : Tokens.ChargeResponse
     {
         [JsonProperty("AccountId")]
         public string AccountId { get; set; }
