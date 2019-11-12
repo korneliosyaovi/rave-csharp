@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Rave.api;
 
-namespace Rave.Models.Tokens
+namespace Rave.Models.Charge
 {
     public abstract class Base <T1, T2> : ICharge<T1, T2> where T1 : RaveResponse<T2>, new() where T2 : ChargeResponse
     {

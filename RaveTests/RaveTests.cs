@@ -4,7 +4,7 @@ using Rave;
 using Rave.Models;
 using Rave.Models.Account;
 using Rave.Models.Card;
-using Rave.Models.Tokens;
+using Rave.Models.Charge;
 using Rave.Models.MobileMoney;
 using Rave.Models.Subaccount;
 

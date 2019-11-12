@@ -6,7 +6,7 @@ using Rave.api;
 
 namespace Rave.Models.Mobile.MobileMoney
 {
-    public class ResponseData : Tokens.ChargeResponse
+    public class ResponseData : Charge.ChargeResponse
     {
         [JsonProperty("status")]
         public string Status { get; set; }

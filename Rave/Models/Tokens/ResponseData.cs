@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
+using Rave.Models.Charge;
 
-namespace Rave.Models.Tokens
+namespace Rave.Models.Charge
 {
-    class ResponseData
+    class ResponseDataTokens: ChargeResponse
     {
         [JsonProperty("redirectUrl")]
         public string RedirectUrl { get; set; }

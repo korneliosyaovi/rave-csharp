@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Rave.Models.Tokens
+namespace Rave.Models.Charge
 {
     public class CreateVirtualCards
     {

@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Rave.Models.Account
 {
-    public class AccountParams : Tokens.ParamsBase
+    public class AccountParams : Charge.ParamsBase
     {
         public AccountParams(string PbfPubKey, string secretKey, string firstName, string lastName, string email, string accountNumber, decimal amount, string bank, string currency, string txRef) : base(PbfPubKey, secretKey, firstName, lastName, email, currency)
         {

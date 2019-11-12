@@ -66,7 +66,7 @@ namespace Rave.Models
 
     }
 
-    public class PreAuthResponseData : Tokens.ChargeResponse
+    public class PreAuthResponseData : Charge.ChargeResponse
     {
         [JsonProperty("CreatedAt", NullValueHandling = NullValueHandling.Ignore)]
         public DateTime CreatedAt { get; set; }
@@ -78,7 +78,7 @@ namespace Rave.Models
         public DateTime DeletedAt { get; set; }
     }
 
-    public class PreAuthParams : Tokens.ParamsBase
+    public class PreAuthParams : Charge.ParamsBase
     {
         public PreAuthParams(string PbfPubKey, string secretKey, string firstName, string lastName, string email, decimal amount, string currency) : base(PbfPubKey, secretKey, firstName, lastName, email, currency)
         {

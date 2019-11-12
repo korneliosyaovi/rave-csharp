@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Rave.Models.Tokens
+namespace Rave.Models.Charge
 {
     public class Token
     {

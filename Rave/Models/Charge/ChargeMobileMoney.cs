@@ -1,4 +1,4 @@
-﻿using System; using System.Collections.Generic; using System.Text; using System.Net.Http; using System.Threading.Tasks; using Rave.api; using Rave.config; using Newtonsoft.Json;  namespace Rave.Models.Tokens {     public class ChargeMobileMoney : Base<RaveResponse<Account.ResponseData>, Account.ResponseData>     {         public ChargeMobileMoney(RaveConfig conf) : base(conf) { }          public override async Task<RaveResponse<Account.ResponseData>> Charge(IParams Params, bool isRecurring = false)         {
+﻿using System; using System.Collections.Generic; using System.Text; using System.Net.Http; using System.Threading.Tasks; using Rave.api; using Rave.config; using Newtonsoft.Json;  namespace Rave.Models.Charge {     public class ChargeMobileMoney : Base<RaveResponse<Account.ResponseData>, Account.ResponseData>     {         public ChargeMobileMoney(RaveConfig conf) : base(conf) { }          public override async Task<RaveResponse<Account.ResponseData>> Charge(IParams Params, bool isRecurring = false)         {
             //if (Params.TxRef.Equals(null))
             //{
 

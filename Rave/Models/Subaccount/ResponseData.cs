@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Rave.Models.Subaccount
 {
-    public class ResponseData : Tokens.ChargeResponse
+    public class ResponseData : Charge.ChargeResponse
     {
         [JsonProperty("id")]
         public int Id { get; set; }

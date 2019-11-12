@@ -6,7 +6,7 @@ using System.Net.Http;
 using Rave.api;
 using Newtonsoft.Json;
 
-namespace Rave.Models.Tokens
+namespace Rave.Models.Charge
 {
     public class ChargeCard : Base<RaveResponse<Card.ResponseData>, Card.ResponseData>
     {

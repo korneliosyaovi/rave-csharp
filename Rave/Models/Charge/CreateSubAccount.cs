@@ -1,7 +1,7 @@
 ﻿using System; using System.Collections.Generic; using System.Text; using System.Net.Http; using System.Threading.Tasks; using Rave.api; using Rave.config; using Newtonsoft.Json;
 using Rave.Models.Account;
 
-namespace Rave.Models.Tokens
+namespace Rave.Models.Charge
 {
     public class CreateSubAccount : Base<RaveResponse<Account.ResponseData>, Account.ResponseData>
     {

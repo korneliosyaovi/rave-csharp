@@ -7,7 +7,7 @@ using Rave.api;
 using Rave.config;
 using Newtonsoft.Json;
 
-namespace Rave.Models.Tokens
+namespace Rave.Models.Charge
 {
     public class ChargeAccount : Base<RaveResponse<Account.ResponseData>, Account.ResponseData>
     {

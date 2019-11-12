@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
-using Rave.Models.Tokens;
+using Rave.Models.Charge;
 
 namespace Rave.api
 {

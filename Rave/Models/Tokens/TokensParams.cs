@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace Rave.Models.Tokens
+namespace Rave.Models.Charge
 {
     public class TokensParams : IParams
     {

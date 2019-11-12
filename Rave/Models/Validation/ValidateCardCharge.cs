@@ -50,7 +50,7 @@ namespace Rave.Models.Validation
             public string Responsemessage { get; set; }
         }
 
-        public class CardValidationTXData : Tokens.ChargeResponse
+        public class CardValidationTXData : Charge.ChargeResponse
         {
             //[JsonProperty("chargeToken")]
             //public RaveChargeToken CardChargeToken { get; set; }
