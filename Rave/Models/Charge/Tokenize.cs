@@ -4,14 +4,13 @@ using System.Text;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Rave.Models.Tokens;
 using Rave.api;
 
 namespace Rave.Models.Charge
 {
-    public class Tokenize : Base<RaveResponse<ResponseDataTokens>, Tokens.ResponseDataTokens>
+    public class Tokenize : Base<RaveResponse<Tokens.ResponseDataTokens>, Tokens.ResponseDataTokens>
     {
-        public Tokenize(RaveConfig config) : base(config)
+        public Tokenize(RaveConfig conf) : base(conf)
         {
         }
 

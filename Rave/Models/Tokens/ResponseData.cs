@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using Rave.Models.Charge;
 
 namespace Rave.Models.Tokens{
-    class ResponseDataTokens: ChargeResponse
+    public class ResponseDataTokens: ChargeResponse
     {
         [JsonProperty("redirectUrl")]
         public string RedirectUrl { get; set; }
