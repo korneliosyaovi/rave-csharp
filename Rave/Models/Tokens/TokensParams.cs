@@ -8,7 +8,7 @@ namespace Rave.Models.Tokens
 {
     public class TokensParams : IParams
     {
-        public TokensParams(string secretKey, string firstName, string lastName, string email, string txRef, decimal amount)
+        public TokensParams(string secretKey, string firstName, string lastName, string email, string txRef, decimal amount, string currency, string country)
         {
             SecretKey = secretKey;
             FirstName = firstName;
@@ -16,24 +16,17 @@ namespace Rave.Models.Tokens
             Email = email;
             TxRef = txRef;
             Amount = amount;
-            Country = "NG";
-            Currency = "NGN";
+            Country = country;
+            Currency = currency;
         }
-        /// <summary>
-        /// This is a unique Secret key generated for each account created on Rave. It can be gotten in the API section of settings. It starts with a prefix FLWSECK and ends with suffix X.
-        /// </summary>
+
+        
         [JsonProperty("SECKEY")]
         public string SecretKey { get; set; }
 
-        /// <summary>
-        /// This is the embed_token property returned from the call to charge a card e.g."chargeToken":{"user_token":"0209","embed_token":"flw-t0-9f3aa69a806f6440fbb78cc9e8b2f135-k3n"}
-        /// </summary>
         [JsonProperty("token")]
         public string Token { get; set; }
 
-        /// <summary>
-        /// This is a unique Public key generated for each account created on Rave. It can be gotten in the API section of settings. It starts with a prefix FLWPUBK and ends with suffix X.
-        /// </summary>
         [JsonProperty("PBFPubKey")]
         public string PbfPubKey { get; set; }
         

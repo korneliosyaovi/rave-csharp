@@ -14,7 +14,7 @@ namespace Rave
             MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
             //MD5CryptoServiceProvider works with bytes so a conversion of plain secretKey to it bytes equivalent is required.
             //UTF8Encoding.UTF8.GetBytes(secretKey) can also be used.
-            byte[] secretKeyBytes = ASCIIEncoding.UTF8.GetBytes(secretKey);
+            byte[] secretKeyBytes = Encoding.UTF8.GetBytes(secretKey);
 
 
             byte[] hashedSecret = md5.ComputeHash(secretKeyBytes, 0, secretKeyBytes.Length);

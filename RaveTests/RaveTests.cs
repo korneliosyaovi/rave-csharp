@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Rave;
 using Rave.Models;
@@ -112,9 +113,12 @@ namespace RaveTests
             var raveConfig = new RaveConfig(PbKey, ScKey, false);
             var tokenCard = new Tokenize(raveConfig);
 
-            var card = new Card("5377283645077450", "09", "21", "789");
-
-            var tokenResponse = tokenCard.Charge(new TokensParams(raveConfig.SecretKey, "Olufumi", "Obafumiso", "olufemi@gmail.com", tranxRef, 100)).Result;
+            var tokenparam = new TokensParams(raveConfig.SecretKey, "Olufumi", "Obafumiso", "olufemi@gmail.com", tranxRef, 100, "NGN", "NG")
+            {
+                Token = "flw-t1nf-139d69763063262928b77bc1f4fba199-m03k",
+                Narration = "Test",
+            };
+            var tokenResponse = tokenCard.Charge(tokenparam).Result;
 
 
             try
