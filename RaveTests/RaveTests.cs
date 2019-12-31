@@ -134,5 +134,20 @@ namespace RaveTests
 
         }
 
+        //[TestMethod]
+        //public void CreateVirtualAccountTest()
+        //{
+        //    var raveConfig = new RaveConfig(PbKey, "FLWSECK-70a24fa0ffd673aef511b443dd49ff98-X", false);
+        //    var virtualacc = new CreateVirtualAccounts(raveConfig);
+
+        //    var payload = new VirtualAccountParams("FLWPUBK-0f39335476fd86517bb7a3f8281b63e4-X", "FLWSECK -70a24fa0ffd673aef511b443dd49ff98-X", "TEST-C-ACCOUNT", "d@gmail.com", "FALSE", "1", 100, "1", "TRF-SHDJß");
+        //    var chargeResponse = virtualacc.Charge(payload).Result;
+
+        //    System.Console.WriteLine("chargeResponse:"+ chargeResponse.ToString());
+
+        //    // Assert.IsNotNull(chargeResponse.Data);
+        //    Assert.AreEqual("success", chargeResponse.Status);
+        //}
+
     }
 }

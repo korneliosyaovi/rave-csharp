@@ -12,7 +12,7 @@ namespace Rave.config
         /// <summary>
         /// Sandbox REST API endpoint
         /// </summary>
-        public const string SanboxUrl = "https://ravesandboxapi.flutterwave.com";
+        public const string SanboxUrl = "https://api.ravepay.co";
 
         /// <summary>
         /// Live REST API endpoint

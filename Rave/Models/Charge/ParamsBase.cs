@@ -20,6 +20,13 @@ namespace Rave.Models.Charge
             Currency = currency;
         }
 
+        protected ParamsBase(string secretKey, string email, String txref)
+        {
+            SecretKey = secretKey;
+            Email = email;
+            TxRef = txref;
+        }
+
         protected ParamsBase(string pbfPubKey, string secretKey, string firstName, string lastName, string email, string currency)
         {
             PbfPubKey = pbfPubKey;

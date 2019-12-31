@@ -15,19 +15,31 @@
 /Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.csproj.CopyComplete
 /Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.dll
 /Users/cleopatradouglas/Desktop/ravec/Rave/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.pdb
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\bin\Debug\netcoreapp2.1\RaveTests.deps.json
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\bin\Debug\netcoreapp2.1\RaveTests.runtimeconfig.json
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\bin\Debug\netcoreapp2.1\RaveTests.runtimeconfig.dev.json
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\bin\Debug\netcoreapp2.1\RaveTests.dll
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\bin\Debug\netcoreapp2.1\RaveTests.pdb
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\bin\Debug\netcoreapp2.1\Rave.dll
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\bin\Debug\netcoreapp2.1\Rave.pdb
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\obj\Debug\netcoreapp2.1\RaveTests.csprojAssemblyReference.cache
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\obj\Debug\netcoreapp2.1\RaveTests.AssemblyInfoInputs.cache
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\obj\Debug\netcoreapp2.1\RaveTests.AssemblyInfo.cs
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\obj\Debug\netcoreapp2.1\RaveTests.csproj.CopyComplete
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\obj\Debug\netcoreapp2.1\RaveTests.dll
-C:\Users\Cornelius Osuzoka\source\repos\rave-csharp\RaveTests\obj\Debug\netcoreapp2.1\RaveTests.pdb
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/RaveTests.deps.json
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/RaveTests.runtimeconfig.json
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/RaveTests.runtimeconfig.dev.json
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/RaveTests.dll
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/RaveTests.pdb
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/Rave.dll
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/Rave.pdb
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.csprojAssemblyReference.cache
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.AssemblyInfoInputs.cache
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.AssemblyInfo.cs
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.csproj.CopyComplete
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.dll
+C:/Users/Cornelius Osuzoka/source/repos/rave-csharp/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.pdb
+/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/Rave.dll
+/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/RaveTests/bin/Debug/netcoreapp2.1/Rave.pdb
+/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.csprojAssemblyReference.cache
+/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.csproj.CoreCompileInputs.cache
+/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.AssemblyInfoInputs.cache
+/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.AssemblyInfo.cs
+/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.csproj.CopyComplete
+/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.dll
+/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/RaveTests/obj/Debug/netcoreapp2.1/RaveTests.pdb

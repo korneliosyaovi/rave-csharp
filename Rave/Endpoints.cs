@@ -19,5 +19,6 @@
         public const string VirtualCardCreate = "/v2/services/virtualcards/new";
         public const string SubAccountCreate = "/v2/gpx/subaccounts/create";
         public const string GetBankTransferList = "/v2/banks/";
+        public const string CreateaccountNumber = "/v2/banktransfers/accountnumbers";
     }
 }
