@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Rave.api;
+using Rave.Models.VirtualAccount;
 
 namespace Rave.Models.Charge
 {

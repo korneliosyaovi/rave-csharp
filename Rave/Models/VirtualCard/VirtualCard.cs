@@ -1,38 +1,118 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Http;
-using Rave.api;
-using Rave.config;
+using RestSharp;
 using Newtonsoft.Json;
 
 namespace Rave.Models.VirtualCard
 {
     public class VirtualCard
     {
-        public VirtualCard(RaveConfig config)
+        public VirtualCard()
         {
-            Config = config;
-            PayDataEncrypt = new DataEncryption();
-            RaveApiRequest = new RaveRequest<RaveResponse<ResponseData>, ResponseData>(config);
+          
         }
 
-        private RaveConfig Config { get; }
-        private IDataEncryption PayDataEncrypt { get; }
-        private IRaveRequest<RaveResponse<ResponseData>, ResponseData> RaveApiRequest { get; }
-
-        public async Task<RaveResponse<ResponseData>> Create(VirtualCardParams virtualCardParams)
+        public string doCreateVirtualCard(VirtualCardParams virtualcardparams)
         {
-            var encryptedKey = PayDataEncrypt.GetEncryptionKey(Config.SecretKey);
-            var encryptedData = PayDataEncrypt.EncryptData(encryptedKey, JsonConvert.SerializeObject(virtualCardParams));
+            var client = new RestClient("https://api.ravepay.co/v2/services/virtualcards/new");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json", JsonConvert.SerializeObject(virtualcardparams), ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
 
-            var content = new StringContent(JsonConvert.SerializeObject(new { PBFPubKey = virtualCardParams.PbfPubKey, client = encryptedData, alg = "3DES-24" }), Encoding.UTF8, "application/json");
-            var requestMessage = new HttpRequestMessage(HttpMethod.Post, Endpoints.VirtualCardCreate) { Content = content };
-
-            var result = await RaveApiRequest.Request(requestMessage);
-            return result;
+            return response.Content;
         }
 
+        public string doListVirtualCard(VirtualCardParams virtualcardparams)
+        {
+            var client = new RestClient("https://api.ravepay.co/v2/services/virtualcards/search");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json", JsonConvert.SerializeObject(new { virtualcardparams.Secret_key, virtualcardparams.Pages }), ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+
+            return response.Content;
+        }
+
+        public string doGetVirtualCard(VirtualCardParams virtualcardparams)
+        {
+            var client = new RestClient("https://api.ravepay.co/v2/services/virtualcards/get");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json", JsonConvert.SerializeObject(new { virtualcardparams.Secret_key, virtualcardparams.Id }), ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+
+            return response.Content;
+        }
+
+        public string doTerminateVirtualCard(VirtualCardParams virtualcardparams)
+        {
+            var client = new RestClient("https://api.ravepay.co/v2/services/virtualcards/"+ virtualcardparams.Id+ "/terminate");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json", JsonConvert.SerializeObject(new { virtualcardparams.Secret_key }), ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+
+            return response.Content;
+        }
+
+        public string doFundVirtualCard(VirtualCardParams virtualcardparams)
+        {
+            var client = new RestClient("https://api.ravepay.co/v2/services/virtualcards/fund");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json", JsonConvert.SerializeObject(new { virtualcardparams.Secret_key, virtualcardparams.Id, virtualcardparams.Amount, virtualcardparams.Debit_currency}), ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+
+            return response.Content;
+        }
+
+        public string doFreezeVirtualCardTransaction(string card_id, string seckey)
+        {
+            var client = new RestClient("https://api.ravepay.co/v2/services/virtualcards/"+ card_id + "/status/block");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json", JsonConvert.SerializeObject(new { seckey }), ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+
+            return response.Content;
+        }
+
+        public string doUnFreezeVirtualCardTransaction(string card_id, string seckey)
+        {
+            var client = new RestClient("https://api.ravepay.co/v2/services/virtualcards/" + card_id + "/status/unblock");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json", JsonConvert.SerializeObject(new { seckey }), ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+
+            return response.Content;
+        }
+
+        public string doWithdrawVirtualCard(VirtualCardParams virtualcardparams)
+        {
+            var client = new RestClient("https://api.ravepay.co/v2/services/virtualcards/withdraw");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json", JsonConvert.SerializeObject(new { virtualcardparams.Card_id, virtualcardparams.Secret_key, virtualcardparams.Amount }), ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+
+            return response.Content;
+        }
     }
 }

@@ -5,10 +5,10 @@
   },
   "projects": {
     "/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/Rave/Rave.csproj": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "restore": {
         "projectUniqueName": "/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/Rave/Rave.csproj",
-        "projectName": "Rave",
+        "projectName": "rave_csharp",
         "projectPath": "/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/Rave/Rave.csproj",
         "packagesPath": "/Users/cleopatradouglas/.nuget/packages/",
         "outputPath": "/Users/cleopatradouglas/Desktop/masterRaveC/rave-csharp/Rave/obj/",
@@ -23,7 +23,7 @@
           "netcoreapp2.1"
         ],
         "sources": {
-          "/Users/cleopatradouglas/Desktop/ravec/Rave/Rave/bin/Release": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
@@ -45,13 +45,25 @@
               "version": "[2.1.0, )",
               "autoReferenced": true
             },
+            "Microsoft.Rest.ClientRuntime": {
+              "target": "Package",
+              "version": "[2.3.21, )"
+            },
             "NUnit": {
               "target": "Package",
               "version": "[3.12.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.2, )"
+              "version": "[12.0.3, )"
+            },
+            "RestClient": {
+              "target": "Package",
+              "version": "[2.5.0.6, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.10.1, )"
             }
           },
           "imports": [

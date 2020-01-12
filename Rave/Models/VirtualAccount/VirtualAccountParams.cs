@@ -6,15 +6,36 @@ using Newtonsoft.Json;
 
 namespace Rave.Models.VirtualAccount
 {
-    public class VirtualAccountParams : ParamsBase
+    public class VirtualAccountParams 
     {
-        public VirtualAccountParams(bool is_permanent, int frequency, int duration, string narration, string secretKey, string email, string txref) : base(secretKey, email, txref)
+        public VirtualAccountParams (string narration, string secretKey, string Email, string txRef, string amount) 
+        {
+            Narration = narration;
+            email = Email;
+            seckey = secretKey;
+            TxRef = txRef;
+            Amount = amount;
+        }
+
+        public VirtualAccountParams(bool is_permanent, string narration, string secretKey, string Email, string txRef)
         {
             Is_permanent = is_permanent;
+            Narration = narration;
+            email = Email;
+            seckey = secretKey;
+            TxRef = txRef;
+            
+        }
+
+        public VirtualAccountParams(int frequency, int duration, string narration, string secretKey, string Email, string txRef, string amount)
+        {
             Frequency = frequency;
             Duration = duration;
             Narration = narration;
-            seckey = base.SecretKey;
+            email = Email;
+            seckey = secretKey;
+            TxRef = txRef;
+            Amount = amount;
         }
 
         [JsonProperty("is_permanent")]
@@ -31,6 +52,15 @@ namespace Rave.Models.VirtualAccount
 
         [JsonProperty("seckey")]
         public string seckey { get; set; }
+
+        [JsonProperty("email")]
+        public string email { get; set; }
+
+        [JsonProperty("txRef")]
+        public string TxRef { get; set; }
+
+        [JsonProperty("amount")]
+        public string Amount { get; set; }
 
     }
 }

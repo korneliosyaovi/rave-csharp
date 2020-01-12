@@ -3,11 +3,24 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageId>rave_csharp</PackageId>
+    <PackageVersion>1.2</PackageVersion>
+    <Authors>Cornelius Ashley, Cleopatra Douglas</Authors>
+    <Owners>Cornelius Ashley, Cleopatra Douglas</Owners>
+    <PackageProjectUrl>https://github.com/Flutterwave/rave-csharp</PackageProjectUrl>
+    <Summary>csharp lib for flutterwave Rave</Summary>
+    <PackageTags>payment, africa</PackageTags>
+    <Title>csharp lib for flutterwave Rave</Title>
+    <Description>C# Nuget for Flutterwave Rave payments</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.21" />
+    <PackageReference Include="RestClient" Version="2.5.0.6" />
+    <PackageReference Include="RestSharp" Version="106.10.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,9 +30,12 @@
     <Folder Include="Models\PaymentPlan\" />
     <Folder Include="Models\Refunds\" />
     <Folder Include="Models\VirtualAccount\" />
+    <Folder Include="Models\Ebills\" />
+    <Folder Include="Models\Subscriptions\" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Program.cs" />
+    <Compile Remove="Models\Charge\CreateVirtualAccounts.cs" />
   </ItemGroup>
 </Project>
