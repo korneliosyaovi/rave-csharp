@@ -4,11 +4,17 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Rave;
 using Rave.Models;
 using Rave.Models.Account;
+using Rave.Models.VirtualCard;
 using Rave.Models.Card;
 using Rave.Models.Charge;
 using Rave.Models.MobileMoney;
 using Rave.Models.Subaccount;
 using Rave.Models.Tokens;
+using Rave.Models.Ebills;
+using Rave.Models.Subscriptions;
+using Rave.Models.VirtualAccount;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace RaveTests
 {
@@ -77,7 +83,7 @@ namespace RaveTests
             var raveConfig = new RaveConfig(PbKey, ScKey, false);
             var accountc = new ChargeAccount(raveConfig);
 
-            var Payload = new AccountParams(PbKey, ScKey, "customer", "customer", "user@example.com", "0690000031", 1000, "044", "NGN","MC-0292920");
+            var Payload = new AccountParams(PbKey, ScKey, "customer", "customer", "user@example.com", "0690000031", 1000, "044", "NGN", "MC-0292920");
             var chargeResponse = accountc.Charge(Payload).Result;
 
             if (chargeResponse.Data.Status == "success-pending-validation")
@@ -86,7 +92,7 @@ namespace RaveTests
                 Payload.Otp = "12345";
                 chargeResponse = accountc.Charge(Payload).Result;
             }
-           // ValidateAccountCharge(chargeResponse.Data.FlwRef);
+            // ValidateAccountCharge(chargeResponse.Data.FlwRef);
 
             Assert.IsNotNull(chargeResponse.Data);
             Assert.AreEqual("success", chargeResponse.Status);
@@ -102,7 +108,7 @@ namespace RaveTests
             var payload = new SubAccountParams(ScKey, "0690000031", "0690000031", "TEST BUSINESS", "user@example.com", "0900000000", "0900000000");
             var chargeResponse = subacc.Charge(payload).Result;
 
-           // Assert.IsNotNull(chargeResponse.Data);
+            // Assert.IsNotNull(chargeResponse.Data);
             Assert.AreEqual("error", chargeResponse.Status);
         }
 
@@ -134,20 +140,109 @@ namespace RaveTests
 
         }
 
-        //[TestMethod]
-        //public void CreateVirtualAccountTest()
-        //{
-        //    var raveConfig = new RaveConfig(PbKey, "FLWSECK-70a24fa0ffd673aef511b443dd49ff98-X", false);
-        //    var virtualacc = new CreateVirtualAccounts(raveConfig);
+        [TestMethod]
+        public void VirtualStaticAccountTest()
+        {
+            var virtuala = new VirtualAccount();
+            var virtualaccountparams = new VirtualAccountParams( "TEST-C-ACCOUNT", ScKey, "d@gmail.com", "TRF-SHDJß");
 
-        //    var payload = new VirtualAccountParams("FLWPUBK-0f39335476fd86517bb7a3f8281b63e4-X", "FLWSECK -70a24fa0ffd673aef511b443dd49ff98-X", "TEST-C-ACCOUNT", "d@gmail.com", "FALSE", "1", 100, "1", "TRF-SHDJß");
-        //    var chargeResponse = virtualacc.Charge(payload).Result;
+            var chargeResponse = virtuala.CreateStaticVirtualAccount(virtualaccountparams);
 
-        //    System.Console.WriteLine("chargeResponse:"+ chargeResponse.ToString());
+            System.Console.WriteLine("chargeResponse:" + chargeResponse.ToString());
 
-        //    // Assert.IsNotNull(chargeResponse.Data);
-        //    Assert.AreEqual("success", chargeResponse.Status);
-        //}
+            JObject json = JObject.Parse(chargeResponse);
+            // Assert.IsNotNull(chargeResponse.Data);
+            Assert.AreEqual("success", (string)json.SelectToken("status"));
+        }
+
+        [TestMethod]
+        public void VirtualTransactionAccountTest()
+        {
+            var virtuala = new VirtualAccount();
+            var virtualaccountparams = new VirtualAccountParams("TEST-C-ACCOUNT", ScKey, "d@gmail.com", "TRF-SHDJß", "100");
+
+            var chargeResponse = virtuala.CreateTransactionVirtualAccount(virtualaccountparams);
+
+            System.Console.WriteLine("chargeResponse:" + chargeResponse.ToString());
+
+            JObject json = JObject.Parse(chargeResponse);
+            // Assert.IsNotNull(chargeResponse.Data);
+            Assert.AreEqual("success", (string)json.SelectToken("status"));
+        }
+
+        [TestMethod]
+        public void VirtualDurationAccountTest()
+        {
+            var virtuala = new VirtualAccount();
+            var virtualaccountparams = new VirtualAccountParams(1, 2, "TEST-C-ACCOUNT", ScKey, "d@gmail.com", "TRF-SHDJß", "100");
+
+            var chargeResponse = virtuala.CreateTransactionVirtualAccount(virtualaccountparams);
+
+            System.Console.WriteLine("chargeResponse:" + chargeResponse.ToString());
+
+            JObject json = JObject.Parse(chargeResponse);
+            // Assert.IsNotNull(chargeResponse.Data);
+            Assert.AreEqual("success", (string)json.SelectToken("status"));
+        }
+
+        [TestMethod]
+        public void CreateEbillsTest()
+        {
+            var ebillscreate = new CreateOrder();
+            var ebillscreateparams = new EbillsCreateRequestParams("NGN", 1, "TEST-C", ScKey, "d@gmail.com", 100, "09384747474", "773838837373", "127.9.0.7");
+
+            var chargeResponse = ebillscreate.doCreateOrder(ebillscreateparams);
+
+            System.Console.WriteLine("chargeResponse:" + chargeResponse.ToString());
+
+            JObject json = JObject.Parse(chargeResponse);
+            // Assert.IsNotNull(chargeResponse.Data);
+            Assert.AreEqual("success", (string)json.SelectToken("status"));
+        }
+
+        [TestMethod]
+        public void UpdateEbillsTest()
+        {
+            var ebillsupdate = new UpdateOrder();
+            var ebillsupdateparams = new EbillsUpdateRequestParams("NGN", ScKey, 500, "RVEBLS-DD2EB67752B9-36138");
+
+            var chargeResponse = ebillsupdate.doUpdateOrder(ebillsupdateparams);
+
+            System.Console.WriteLine("chargeResponse:" + chargeResponse.ToString());
+
+            JObject json = JObject.Parse(chargeResponse);
+            // Assert.IsNotNull(chargeResponse.Data);
+            Assert.AreEqual("success", (string)json.SelectToken("status"));
+        }
+
+        [TestMethod]
+        public void ListSubscriptions()
+        {
+            var listsubs = new ListSubscriptions();
+
+            var chargeResponse = listsubs.doListSubscriptions(ScKey);
+
+            System.Console.WriteLine("chargeResponse:" + chargeResponse.ToString());
+
+            JObject json = JObject.Parse(chargeResponse);
+            // Assert.IsNotNull(chargeResponse.Data);
+            Assert.AreEqual("success", (string)json.SelectToken("status"));
+        }
+
+        [TestMethod]
+        public void CreateVirtualCard()
+        {
+            var createvirtualcard = new VirtualCard();
+
+            var virtualcardparams = new VirtualCardParams(ScKey, "clopat", "NGN", "100", "lagos, lagos", "lagos", "lagos", "0000", "NG", "www.facebook.com");
+            var chargeResponse = createvirtualcard.doCreateVirtualCard(virtualcardparams);
+
+            System.Console.WriteLine("chargeResponse:" + chargeResponse.ToString());
+
+            JObject json = JObject.Parse(chargeResponse);
+            // Assert.IsNotNull(chargeResponse.Data);
+            Assert.AreEqual("error", (string)json.SelectToken("status"));
+        }
 
     }
-}
+    }
