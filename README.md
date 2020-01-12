@@ -8,11 +8,14 @@ The Rave .NET Library implements the following payment services:
 1. Card Payments
 2. Bank Account Payments.
 3. Mobile Money Payments.
+4. Bank Transfer (NGN).
+5. Subscriptions.
+6. Virtual Cards.
+
 
 The Library also implements the following features:
 1. Tokeniztion (in development).
 2. Subaccounts (in development).
-3. Virtual Cards (in development).
 4. Currencies.
 5. Pre-Authorisation.
 6. Refunds.
@@ -267,6 +270,56 @@ class Program
             var Payload = new MobileMoneyParams(PbKey, ScKey, "Anonymous", "customer", "user@example.com",  1055, "GHS", "054709929220", "MTN", "GH", "mobilemoneygh", tranxRef);
             var cha = mobilemoney.Charge(Payload).Result;
         }
+```
+
+## Bank Transfers
+This shows how to create an account number for customers to pay you with using the pay with bank transfer feature.
+
+## Usage
+
+**Static Accounts:**
+```
+   var virtualacct = new VirtualAccount();
+   var virtualaccountparams = new VirtualAccountParams(narration, ScKey, email, reference);
+   var chargeResponse = virtuala.CreateStaticVirtualAccount(virtualaccountparams);
+
+```
+
+**Transaction Accounts:**
+```
+    var virtuala = new VirtualAccount();
+    var virtualaccountparams = new VirtualAccountParams(narration, ScKey, email, reference, amount);
+    var chargeResponse = virtuala.CreateTransactionVirtualAccount(virtualaccountparams);
+
+```
+
+**Duration Accounts:**
+```
+    var virtuala = new VirtualAccount();
+    var virtualaccountparams = new VirtualAccountParams(frequency, durtion, narration, ScKey, email, ref, amount);
+    var chargeResponse = virtuala.CreateTransactionVirtualAccount(virtualaccountparams);
+
+```
+
+## Ebills
+This API allows you to create and update a new Ebills order.
+
+## Usage
+
+**Create Ebills:**
+```
+    var ebillscreate = new CreateOrder();
+    var ebillscreateparams = new EbillsCreateRequestParams(currency, numberofunits, narraction, ScKey, email, amount, phonenumber, txRef, IP);
+    var chargeResponse = ebillscreate.doCreateOrder(ebillscreateparams);
+
+```
+
+**Update Ebills:**
+```
+      var ebillsupdate = new UpdateOrder();
+      var ebillsupdateparams = new EbillsUpdateRequestParams(currency, ScKey, amount, flwref");
+      var chargeResponse = ebillsupdate.doUpdateOrder(ebillsupdateparams);
+
 ```
 
 ## Support
