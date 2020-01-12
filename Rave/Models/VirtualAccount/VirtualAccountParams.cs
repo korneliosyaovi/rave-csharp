@@ -17,9 +17,9 @@ namespace Rave.Models.VirtualAccount
             Amount = amount;
         }
 
-        public VirtualAccountParams(bool is_permanent, string narration, string secretKey, string Email, string txRef)
+        public VirtualAccountParams( string narration, string secretKey, string Email, string txRef)
         {
-            Is_permanent = is_permanent;
+            Is_permanent = true;
             Narration = narration;
             email = Email;
             seckey = secretKey;

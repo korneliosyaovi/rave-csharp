@@ -12,6 +12,7 @@ namespace Rave.Models.VirtualAccount
 
         public String CreateStaticVirtualAccount(VirtualAccountParams virtualaccountparams)
         {
+            virtualaccountparams.Is_permanent.Equals(true);
 
             var client = new RestClient("https://api.ravepay.co/v2/banktransfers/accountnumbers");
             client.Timeout = -1;
