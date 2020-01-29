@@ -14,8 +14,8 @@ The Rave .NET Library implements the following payment services:
 
 
 The Library also implements the following features:
-1. Tokeniztion (in development).
-2. Subaccounts (in development).
+1. Tokeniztion
+2. Subaccounts
 4. Currencies.
 5. Pre-Authorisation.
 6. Refunds.
@@ -34,6 +34,7 @@ using System.Collections.Generic;
 using Rave.Models.MobileMoney;
 using Rave.Models.VirtualCard;
 using Rave.Models.Subaccount;
+using Rave.Models.Tokens;
 using Rave.Models;
 using Rave.Models.Charge;
 using Rave.Models.Account;
@@ -110,7 +111,7 @@ var cha = cardCharge.Charge(Payload).Result;
         static void Main(string[] args)
         {
             
-            var raveConfig = new RaveConfig(recurringPbKey, recurringScKey, false);
+            var raveConfig = new RaveConfig(PbKey, ScKey, false);
             var cardCharge = new CardCharge(raveConfig);
 
             var Payload = new CardChargeParams(PbKey, "Anonymous", "Customer", "tester@example.com", 2100)
@@ -320,6 +321,116 @@ This API allows you to create and update a new Ebills order.
       var ebillsupdateparams = new EbillsUpdateRequestParams(currency, ScKey, amount, flwref");
       var chargeResponse = ebillsupdate.doUpdateOrder(ebillsupdateparams);
 
+```
+
+## Tokenization
+This implements Card tokenization for Pin, 3D-Secure, VBV and NoAuth cards.
+
+## Usage
+1. Complete basic configuration following the configuration steps.
+
+2. Charge the card using instructions from the Card charge section of the documentation.
+
+3. Configure the tokenized card
+```
+var tokenCard = new Tokenize(raveConfig);
+```
+
+4. Pass tokenized card parameters as payload.
+The payload should contain: 
+- `Secret key` 
+- `First name`
+- `Last name` 
+- `Email address`
+- `Transaction ref`
+- `Amount`
+- `currency`
+- `embed token`
+- `Narration`
+
+
+```var Payload = new TokensParams(ScKey, "Anonymous", "Customer", "tester@example.com", tranxref, 2100, "NGN", "NG"){ Token = "flw-t1nf-139d69763063262928b77bc1f4fba199-m03k", Narration = "Test"};
+```
+
+5. Make tokenized charge.
+```
+var tokenResponse = tokenCard.Charge(tokenparam).Result;
+```
+
+**The complete tokenized card charge:**
+```
+    class Program
+    {
+        private static string tranxRef = "454839";
+        private static string PbKey = "";
+        private static string ScKey = "";
+        static void Main(string[] args)
+        {
+            
+            var raveConfig = new RaveConfig(PbKey, ScKey, false);
+            var cardCharge = new CardCharge(raveConfig);
+
+            var Payload = new TokensParams(ScKey, "Anonymous", "Customer", "tester@example.com", tranxref, 2100, "NGN", "NG"){ Token = "flw-t1nf-139d69763063262928b77bc1f4fba199-m03k", Narration = "Test"};
+            
+            var tokenResponse = tokenCard.Charge(tokenparam).Result;
+
+        }
+    }
+    
+```
+
+## SubAccounts
+This implements subaccount creation for split payments.
+
+## Usage
+1. Complete basic configuration following the configuration steps.
+
+2. Configure the SubAccount
+```
+var subacc = new CreateSubAccount(raveConfig);
+```
+
+3. Pass tokenized card parameters as payload.
+The payload should contain: 
+- `Secret key` 
+- `Account Bank`
+- `Account number`
+- `Business Name`
+- `Business Email`
+- `Business contact `
+- `Business contact  mobile`
+
+
+```var payload = new SubAccountParams(ScKey, "0690000031", "0690000031", "TEST BUSINESS", "user@example.com", "0900000000", "0900000000");
+```
+
+please note that the same value can be passed as business contact and business contact number.
+
+4. Create the Subaccount.
+```
+var chargeResponse = subacc.Charge(payload).Result;
+```
+
+**The complete subaccount creation flow:**
+```
+    class Program
+    {
+        private static string tranxRef = "454839";
+        private static string PbKey = "";
+        private static string ScKey = "";
+        static void Main(string[] args)
+        {
+            
+            var raveConfig = new RaveConfig(PbKey, ScKey, false);
+            var subacc = new CreateSubAccount(raveConfig);
+
+            var payload = new SubAccountParams(ScKey, "0690000031", "0690000031", "TEST BUSINESS", "user@example.com", "0900000000", "0900000000");
+            
+            var chargeResponse = subacc.Charge(payload).Result;
+
+        }
+    }
+    
 ```
 
 ## Support
