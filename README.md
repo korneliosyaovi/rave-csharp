@@ -348,8 +348,8 @@ The payload should contain:
 - `embed token`
 - `Narration`
 
-
-```var Payload = new TokensParams(ScKey, "Anonymous", "Customer", "tester@example.com", tranxref, 2100, "NGN", "NG"){ Token = "flw-t1nf-139d69763063262928b77bc1f4fba199-m03k", Narration = "Test"};
+```
+var Payload = new TokensParams(ScKey, "Anonymous", "Customer", "tester@example.com", tranxref, 2100, "NGN", "NG"){ Token = "flw-t1nf-139d69763063262928b77bc1f4fba199-m03k", Narration = "Test"};
 ```
 
 5. Make tokenized charge.
@@ -400,8 +400,8 @@ The payload should contain:
 - `Business contact `
 - `Business contact  mobile`
 
-
-```var payload = new SubAccountParams(ScKey, "0690000031", "0690000031", "TEST BUSINESS", "user@example.com", "0900000000", "0900000000");
+```
+var payload = new SubAccountParams(ScKey, "0690000031", "0690000031", "TEST BUSINESS", "user@example.com", "0900000000", "0900000000");
 ```
 
 please note that the same value can be passed as business contact and business contact number.
