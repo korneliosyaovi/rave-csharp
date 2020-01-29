@@ -1,4 +1,4 @@
-# Rave .NET SDK  ![Build Status](https://api.travis-ci.org/Official-kornelios/Rave.svg?branch=master)
+# Rave .NET SDK  ![Build Status](https://travis-ci.org/Official-kornelios/rave-csharp.svg?branch=master)
 ## Description
 The Rave .NET SDK makes it easy to add Rave support to your .NET web application and is built on Rave's REST APIs.
 
