@@ -22,6 +22,23 @@ namespace Rave.Models.Card
             Cvv = card.Cvv;
             Pin = card.Pin;
         }
+        
+        public CardParams(string PbfPubKey, string secretKey, string firstName, string lastName, string email, decimal amount, string currency, Card card, string billingzip, string billingcity, string billingaddress, string billingstate, string billingcountry) : base(PbfPubKey, secretKey, firstName, lastName, email, currency)
+        {
+            Amount = amount;
+            CardNo = card.CardNo;
+            Expirymonth = card.Expirymonth;
+            Expiryyear = card.Expiryyear;
+            Cvv = card.Cvv;
+            Pin = card.Pin;
+            BillingZip = billingzip;
+            BillingCity = billingcity;
+            BillingAddress = billingaddress;
+            BillingState = billingstate;
+            BillingCountry = billingcountry;
+
+
+        }
 
         [JsonProperty("cardno")]
         public string CardNo { get; set; }
