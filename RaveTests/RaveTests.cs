@@ -30,6 +30,7 @@ namespace RaveTests
         string ScKey = Environment.GetEnvironmentVariable("ScKey");
 
 
+        //Preauth Card charge test
         [TestMethod]
         public void preauthTest()
         {
@@ -54,7 +55,35 @@ namespace RaveTests
 
 
         }
+        
+        //Noauth Card charge test
+        [TestMethod]
+        public void avschargetest()
+        {
+            var raveConfig = new RaveConfig(PbKey, ScKey, false);
+            var cardCharge = new ChargeCard(raveConfig);
+            var card = new Card("5377283645077450", "09", "21", "789");
 
+            var payload = new CardParams(PbKey, ScKey, "Anonymous", "Tester", "user@example.com", 200, "USD", card, "07205", "Hillside", "470 Mundet PI", "NJ", "US");
+
+            var res = cardCharge.Charge(payload).Result;
+
+            try
+            {
+                Assert.IsNotNull(res.Data);
+                Console.WriteLine(res.Data);
+                Assert.AreEqual("success", res.Status);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
+        }
+        
+        
+        //Mobile money charge test
         [TestMethod]
         public void mobileMoneyTest()
         {
@@ -77,6 +106,7 @@ namespace RaveTests
             }
         }
 
+        //Account charge test
         [TestMethod]
         public void accountTest()
         {
@@ -99,6 +129,7 @@ namespace RaveTests
         }
 
 
+        //Subaccount creation test
         [TestMethod]
         public void CreateSubAccountTest()
         {
@@ -112,6 +143,7 @@ namespace RaveTests
             Assert.AreEqual("error", chargeResponse.Status);
         }
 
+        //Tokenized Card charge test suite
         [TestMethod]
         public void TokenTest()
         {
@@ -140,6 +172,7 @@ namespace RaveTests
 
         }
 
+        
         [TestMethod]
         public void VirtualStaticAccountTest()
         {
@@ -215,6 +248,7 @@ namespace RaveTests
             Assert.AreEqual("success", (string)json.SelectToken("status"));
         }
 
+        //Subscription list test
         [TestMethod]
         public void ListSubscriptions()
         {
@@ -229,6 +263,7 @@ namespace RaveTests
             Assert.AreEqual("success", (string)json.SelectToken("status"));
         }
 
+        //Virtual Card creation test
         [TestMethod]
         public void CreateVirtualCard()
         {
