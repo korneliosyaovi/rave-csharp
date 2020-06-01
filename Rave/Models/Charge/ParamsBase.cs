@@ -107,5 +107,25 @@ namespace Rave.Models.Charge
         
         [JsonProperty("lastname")]
         public string LastName { get; set; }
+        
+        
+        [JsonProperty("billingzip")]
+        public string BillingZip { get; set; }
+
+
+        [JsonProperty("billingcity")]
+        public string BillingCity { get; set; }
+
+
+        [JsonProperty("billingaddress")]
+        public string BillingAddress { get; set; }
+
+
+        [JsonProperty("billingstate")]
+        public string BillingState { get; set; }
+
+
+        [JsonProperty("billingcountry")]
+        public string BillingCountry { get; set; }
     }
 }
