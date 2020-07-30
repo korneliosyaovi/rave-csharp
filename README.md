@@ -1,3 +1,7 @@
+<p align="center">
+    <img title="Flutterwave" height="200" src="https://flutterwave.com/images/logo-colored.svg" width="50%"/>
+</p>
+
 # Rave .NET SDK  ![Build Status](https://travis-ci.org/Official-kornelios/rave-csharp.svg?branch=master)
 ## Description
 The Rave .NET SDK makes it easy to add Rave support to your .NET web application and is built on Rave's REST APIs.
