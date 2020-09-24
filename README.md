@@ -2,7 +2,11 @@
     <img title="Flutterwave" height="200" src="https://flutterwave.com/images/logo-colored.svg" width="50%"/>
 </p>
 
-# Flutterwave .NET Library  ![Build Status](https://travis-ci.org/Official-kornelios/rave-csharp.svg?branch=master)
+# Flutterwave .NET Library
+![Build Status](https://travis-ci.org/Official-kornelios/rave-csharp.svg?branch=master)
+![Nuget](https://img.shields.io/nuget/v/rave_csharp)
+![Nuget](https://img.shields.io/nuget/dt/rave_csharp)
+
 ## Description
 The Flutterwave .NET SDK makes it easy to add our payment features to your .NET web applications.
 
