@@ -21,8 +21,8 @@
 //        private const string successfulFwRef = "FLW00920971";
 //        private const string unCapturedFwRef = "FLW00920978";
 //        private static string tranxRef = "454839";
-//        private static string PbKey = "FLWPUBK_TEST-dc4f2335f2c3a75e9b723d81414fc131-X";
-//        private static string ScKey = "FLWSECK_TEST-ea98d7c9a29c80779060fa435fb8efdb-X";
+//        private static string PbKey = "FLWPUBK_TEST-xxxxxxxxxxxxxxxxxxxxx-X";
+//        private static string ScKey = "FLWSECK_TEST-xxxxxxxxxxxxxxxxxxxxx-X";
 
 //        static void Main(string[] args)
 //        //  public override string ToString()
